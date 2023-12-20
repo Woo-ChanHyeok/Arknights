@@ -1,0 +1,1938 @@
+fileFormatVersion: 2
+guid: 9edec683b1d2a4a49a069a50b296cd4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4983045184200938566
+    second: UI_Battle_0
+  - first:
+      213: -3276333333213350983
+    second: UI_Battle_1
+  - first:
+      213: 8717718664788606776
+    second: UI_Battle_2
+  - first:
+      213: -8087671932396470624
+    second: UI_Battle_3
+  - first:
+      213: -6343780824111141361
+    second: UI_Battle_8
+  - first:
+      213: -3690254788037878302
+    second: UI_Battle_9
+  - first:
+      213: -718651144870408471
+    second: UI_Battle_10
+  - first:
+      213: 6199732673939418134
+    second: UI_Battle_11
+  - first:
+      213: -1573747804118305731
+    second: UI_Battle_12
+  - first:
+      213: -8548285337265061279
+    second: UI_Battle_13
+  - first:
+      213: -4604161334990900379
+    second: UI_Battle_14
+  - first:
+      213: -7448574564012918098
+    second: UI_Battle_16
+  - first:
+      213: 5553609398262046560
+    second: UI_Battle_17
+  - first:
+      213: 5074373191204020936
+    second: UI_Battle_18
+  - first:
+      213: -2239350131304298710
+    second: UI_Battle_22
+  - first:
+      213: -952636883398143305
+    second: UI_Battle_23
+  - first:
+      213: -9127707663086579058
+    second: UI_Battle_25
+  - first:
+      213: -6623477653071692702
+    second: UI_Battle_26
+  - first:
+      213: -5146647045385435536
+    second: UI_Battle_27
+  - first:
+      213: -7406188427749961393
+    second: UI_Battle_28
+  - first:
+      213: 7020755911346941194
+    second: UI_Battle_29
+  - first:
+      213: -1069563157234360078
+    second: UI_Battle_30
+  - first:
+      213: 6034167642074500131
+    second: UI_Battle_31
+  - first:
+      213: -1993670833004290370
+    second: UI_Battle_32
+  - first:
+      213: 7608066040382021897
+    second: UI_Battle_33
+  - first:
+      213: -3119124096967624173
+    second: UI_Battle_34
+  - first:
+      213: 7427776434720638429
+    second: UI_Battle_35
+  - first:
+      213: 6359433694731850195
+    second: UI_Battle_36
+  - first:
+      213: 8003040401425834319
+    second: UI_Battle_37
+  - first:
+      213: -7870000067886942120
+    second: UI_Battle_38
+  - first:
+      213: -6877470429766384689
+    second: UI_Battle_39
+  - first:
+      213: -3300042763755446443
+    second: UI_Battle_40
+  - first:
+      213: -1982998839800036327
+    second: UI_Battle_41
+  - first:
+      213: 544902620693900826
+    second: UI_Battle_42
+  - first:
+      213: 1873418857419911262
+    second: UI_Battle_43
+  - first:
+      213: -4807268578303190733
+    second: UI_Battle_44
+  - first:
+      213: 4185356818571891933
+    second: UI_Battle_45
+  - first:
+      213: 5096292222053650742
+    second: UI_Battle_46
+  - first:
+      213: -550527571088002337
+    second: UI_Battle_47
+  - first:
+      213: 5211517735839204281
+    second: UI_Battle_48
+  - first:
+      213: 4197072818418145645
+    second: UI_Battle_49
+  - first:
+      213: 3520393580223360791
+    second: UI_Battle_50
+  - first:
+      213: -120123946952664220
+    second: UI_Battle_51
+  - first:
+      213: 8038353537622200650
+    second: UI_Battle_52
+  - first:
+      213: 5387738364015277538
+    second: UI_Battle_53
+  - first:
+      213: -1319515351832334764
+    second: UI_Battle_54
+  - first:
+      213: -1212292925112042236
+    second: UI_Battle_55
+  - first:
+      213: -7741971788422562792
+    second: UI_Battle_56
+  - first:
+      213: 7955810197332695362
+    second: UI_Battle_21
+  - first:
+      213: -2702910780890028001
+    second: UI_Battle_57
+  - first:
+      213: 3408523926010845026
+    second: UI_Battle_4
+  - first:
+      213: 4009098273896212318
+    second: UI_Battle_5
+  - first:
+      213: 4332920405733491551
+    second: UI_Battle_6
+  - first:
+      213: -899234990325524384
+    second: UI_Battle_7
+  - first:
+      213: -3984229169750152719
+    second: UI_Battle_15
+  - first:
+      213: 6222036400685414669
+    second: UI_Battle_19
+  - first:
+      213: -2441389684848663066
+    second: UI_Battle_20
+  - first:
+      213: -4246489969635304226
+    second: UI_Battle_59
+  - first:
+      213: 3023124949064753836
+    second: UI_Battle_60
+  - first:
+      213: -4513888263961545945
+    second: UI_Battle_61
+  - first:
+      213: -2173045387761942234
+    second: UI_Battle_62
+  - first:
+      213: -9049721131988922133
+    second: UI_Battle_63
+  - first:
+      213: 943677907696743799
+    second: UI_Battle_64
+  - first:
+      213: 6065985103766021940
+    second: UI_Battle_65
+  - first:
+      213: -6591918078290563499
+    second: UI_Battle_66
+  - first:
+      213: -4379246408661915247
+    second: UI_Battle_67
+  - first:
+      213: 3322740224535610463
+    second: UI_Battle_68
+  - first:
+      213: -5143814966242613486
+    second: UI_Battle_69
+  - first:
+      213: 3525743797133763125
+    second: UI_Battle_70
+  - first:
+      213: -6574881950650823599
+    second: UI_Battle_71
+  - first:
+      213: 4701191055732115149
+    second: UI_Battle_72
+  - first:
+      213: -8571832658174103843
+    second: UI_Battle_73
+  - first:
+      213: 4896136736451388046
+    second: UI_Battle_74
+  - first:
+      213: 3230437314295650362
+    second: UI_Battle_75
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Battle_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1975
+        width: 176
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb6bf76ecaa8dab0800000000000000
+      internalID: -4983045184200938566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 2009
+        width: 555
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3fb0431302882d0800000000000000
+      internalID: -3276333333213350983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_2
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 2014
+        width: 51
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f748aefee8bf870800000000000000
+      internalID: 8717718664788606776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_3
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1714
+        width: 1027
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae7c915a31d2cf80800000000000000
+      internalID: -8087671932396470624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_8
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1961
+        width: 170
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0eabe583fc56f7a0800000000000000
+      internalID: -6343780824111141361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_9
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1252
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed515472d499ccc0800000000000000
+      internalID: -3690254788037878302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_10
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1924
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee42906796d606f0800000000000000
+      internalID: -718651144870408471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_11
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1806
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61caa84f400e90650800000000000000
+      internalID: 6199732673939418134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_12
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1924
+        width: 518
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d343a71d5bce82ae0800000000000000
+      internalID: -1573747804118305731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1788
+        width: 744
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162c2a9c6c36e5980800000000000000
+      internalID: -8548285337265061279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_14
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1896
+        width: 554
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5637743e8abba10c0800000000000000
+      internalID: -4604161334990900379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_16
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 1792
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaafff4f5e851a890800000000000000
+      internalID: -7448574564012918098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_17
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 1669
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f1eacc252621d40800000000000000
+      internalID: 5553609398262046560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_18
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 1757
+        width: 119
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c22b7f388bcb6640800000000000000
+      internalID: 5074373191204020936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_22
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 1409
+        width: 159
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2702ef8bea3ce0e0800000000000000
+      internalID: -2239350131304298710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_23
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 1698
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b25e154dcd87c2f0800000000000000
+      internalID: -952636883398143305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_26
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 1559
+        width: 178
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c7ceeca2ea414a0800000000000000
+      internalID: -6623477653071692702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_28
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 932
+        width: 24
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41da585ddee73990800000000000000
+      internalID: -7406188427749961393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_29
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 910
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0dee86cd4cbe6160800000000000000
+      internalID: 7020755911346941194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_30
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 1101
+        width: 157
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0633ca9f52821f0800000000000000
+      internalID: -1069563157234360078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_31
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 672
+        width: 249
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cc105008badb350800000000000000
+      internalID: 6034167642074500131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_32
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1568
+        width: 156
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebed8b7b0fe0554e0800000000000000
+      internalID: -1993670833004290370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_33
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 924
+        height: 924
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901eea421c7459960800000000000000
+      internalID: 7608066040382021897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_34
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 679
+        width: 186
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a32edd825a6b4d0800000000000000
+      internalID: -3119124096967624173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_35
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 864
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd58a863053c41760800000000000000
+      internalID: 7427776434720638429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_36
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1409
+        width: 167
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1542b604f314850800000000000000
+      internalID: 6359433694731850195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_37
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 832
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41261ad7d2801f60800000000000000
+      internalID: 8003040401425834319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_38
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 809
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8587c43a2a428c290800000000000000
+      internalID: -7870000067886942120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_39
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 844
+        width: 100
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3858025115e80a0800000000000000
+      internalID: -6877470429766384689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_40
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 811
+        width: 141
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f12ca3794e332d0800000000000000
+      internalID: -3300042763755446443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_41
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 827
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91405b3cf09fa74e0800000000000000
+      internalID: -1982998839800036327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_42
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 796
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ea3a7eb02ef8700800000000000000
+      internalID: 544902620693900826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_43
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 1188
+        width: 176
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5038086688bff910800000000000000
+      internalID: 1873418857419911262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_44
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 674
+        width: 148
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3395752b2b6294db0800000000000000
+      internalID: -4807268578303190733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_45
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 340
+        width: 160
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd49c3df9df551a30800000000000000
+      internalID: 4185356818571891933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_46
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 716
+        width: 94
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631181f46caa9b640800000000000000
+      internalID: 5096292222053650742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_47
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 432
+        width: 256
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2bd3647122c58f0800000000000000
+      internalID: -550527571088002337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_48
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 540
+        width: 380
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b30859d4c7035840800000000000000
+      internalID: 5211517735839204281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_49
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1401
+        width: 163
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69d246cd7ffe3a30800000000000000
+      internalID: 4197072818418145645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_50
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 616
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f67c23f43fad030800000000000000
+      internalID: 3520393580223360791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_51
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 460
+        width: 4
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b5edc18eb355ef0800000000000000
+      internalID: -120123946952664220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_52
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1793
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41d9f414f7fd8f60800000000000000
+      internalID: 8038353537622200650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_53
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 361
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5ffd12f7715ca40800000000000000
+      internalID: 5387738364015277538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_54
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1786
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45eeb5257c320bde0800000000000000
+      internalID: -1319515351832334764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_55
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 322
+        width: 194
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d3af2f1021d2fe0800000000000000
+      internalID: -1212292925112042236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_56
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 8
+        width: 124
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c3af95dadfe8490800000000000000
+      internalID: -7741971788422562792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_21
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1985
+        width: 555
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24912780937b86e60800000000000000
+      internalID: 7955810197332695362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_57
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1960
+        width: 555
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18e97527f45d7ad0800000000000000
+      internalID: -2702910780890028001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_4
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 1697
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267db4a93728d4f20800000000000000
+      internalID: 3408523926010845026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_5
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1567
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57273593ad23a730800000000000000
+      internalID: 4009098273896212318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_6
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 1731
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5349c7f620a12c30800000000000000
+      internalID: 4332920405733491551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_7
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 1736
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0689b086a864583f0800000000000000
+      internalID: -899234990325524384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_15
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 1788
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f9ea41fdac25b8c0800000000000000
+      internalID: -3984229169750152719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_19
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 1350
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d097762042d195650800000000000000
+      internalID: 6222036400685414669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_20
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1471
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5ea4444017e1ed0800000000000000
+      internalID: -2441389684848663066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_24
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 1089
+        width: 180
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961ae176a8cdb6330800000000000000
+      internalID: 3705297605436023145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_58
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 1148
+        width: 62
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b02fa5808c25150800000000000000
+      internalID: 5859966003373542283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_59
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 12
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcd0a91fdf6115c0800000000000000
+      internalID: -4246489969635304226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_60
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 6
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca220acbf1c44f920800000000000000
+      internalID: 3023124949064753836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_61
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 13
+        width: 584
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72374ce1a827b51c0800000000000000
+      internalID: -4513888263961545945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_62
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 177
+        width: 471
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62106adabbac7d1e0800000000000000
+      internalID: -2173045387761942234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 945
+        width: 729
+        height: 292
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be05473f39ee86280800000000000000
+      internalID: -9049721131988922133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_64
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 132
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775f5a6ae0e981d00800000000000000
+      internalID: 943677907696743799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_65
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 214
+        width: 73
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437e8ca1055be2450800000000000000
+      internalID: 6065985103766021940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_66
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 938
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ee30bee6dc484a0800000000000000
+      internalID: -6591918078290563499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_67
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1961
+        width: 141
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1992dc3f79ac933c0800000000000000
+      internalID: -4379246408661915247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_68
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 1573
+        width: 107
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54c85c21aebc1e20800000000000000
+      internalID: 3322740224535610463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_69
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 1513
+        width: 176
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21765c29a8f7d98b0800000000000000
+      internalID: -5143814966242613486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_70
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 1603
+        width: 176
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532e135ad45fde030800000000000000
+      internalID: 3525743797133763125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_25
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 1331
+        width: 557
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e821d18bd3ed35180800000000000000
+      internalID: -9127707663086579058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_27
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1567
+        width: 157
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076cc73c7cf6398b0800000000000000
+      internalID: -5146647045385435536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_71
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1956
+        width: 176
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c845b73b351c4a0800000000000000
+      internalID: -6574881950650823599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_72
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1091
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc608227b5cfd3140800000000000000
+      internalID: 4701191055732115149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_73
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 678
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddea077ec9bba0980800000000000000
+      internalID: -8571832658174103843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1239
+        width: 389
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82ece3cb6292f340800000000000000
+      internalID: 4896136736451388046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Battle_75
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1084
+        width: 352
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3852cb2f91d4dc20800000000000000
+      internalID: 3230437314295650362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2370df7dc725ce04b80f81bf25271bb4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
