@@ -5,10 +5,11 @@ using UnityEngine;
 public class MyOperator : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private RectTransform Canvas;
+    [SerializeField] private RectTransform Canvas; // 프리팹 부모용
+
+    [SerializeField] private GameObject OperInfo;
 
     private CameraController cameraController;
-
     private GameObject Oper;
 
     private bool isDrag = false;
@@ -39,9 +40,11 @@ public class MyOperator : MonoBehaviour
         oper.transform.parent = Canvas;
         oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Oper = oper;
+
         isDrag = true;
 
         cameraController.ToggleCamera();
+        OperInfo.SetActive(true);
     }
 
     public void OnDrag()
@@ -62,6 +65,7 @@ public class MyOperator : MonoBehaviour
             {
                 isDrag = false;
                 cameraController.ToggleCamera();
+                OperInfo.SetActive(false);
 
                 Destroy(Oper);
             }
