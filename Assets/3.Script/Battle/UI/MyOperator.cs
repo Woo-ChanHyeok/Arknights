@@ -5,7 +5,7 @@ using UnityEngine;
 public class MyOperator : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private RectTransform Canvas; // 프리팹 부모용
+    [SerializeField] private RectTransform prefabParent; // 프리팹 부모용
 
     [SerializeField] private GameObject OperInfo;
 
@@ -29,6 +29,16 @@ public class MyOperator : MonoBehaviour
     {
         if (isDrag)
             return;
+        if (!OperInfo.activeSelf)
+        {
+            cameraController.TiltCamera();
+            OperInfo.SetActive(true);
+        }
+        else if (OperInfo.activeSelf)
+        {
+            cameraController.RestoreCamera();
+            OperInfo.SetActive(false);
+        }
         Debug.Log("뗐니?");
     }
 
@@ -37,13 +47,13 @@ public class MyOperator : MonoBehaviour
         Debug.Log("드래그시작");
         //Invoke("test",0.1f);
         GameObject oper = Instantiate(prefab);
-        oper.transform.parent = Canvas;
+        oper.transform.parent = prefabParent;
         oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Oper = oper;
 
         isDrag = true;
 
-        cameraController.ToggleCamera();
+        cameraController.TiltCamera();
         OperInfo.SetActive(true);
     }
 
@@ -64,7 +74,7 @@ public class MyOperator : MonoBehaviour
             if (Oper != null)
             {
                 isDrag = false;
-                cameraController.ToggleCamera();
+                cameraController.RestoreCamera();
                 OperInfo.SetActive(false);
 
                 Destroy(Oper);

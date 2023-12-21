@@ -6,21 +6,15 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform mainPos;
     [SerializeField] private Transform secondPos;
-    private bool toggleCamera = false;
     public float transitionDuration = 0.1f; // 전환 시간을 0.1초로 설정
 
-    public void ToggleCamera()
+    public void TiltCamera()
     {
-        if (!toggleCamera)
-        {
-            StartCoroutine(MoveCameraSmoothly(Camera.main.transform, secondPos, transitionDuration));
-            toggleCamera = true;
-        }
-        else
-        {
-            StartCoroutine(MoveCameraSmoothly(Camera.main.transform, mainPos, transitionDuration));
-            toggleCamera = false;
-        }
+        StartCoroutine(MoveCameraSmoothly(Camera.main.transform, secondPos, transitionDuration));
+    }
+    public void RestoreCamera()
+    {
+        StartCoroutine(MoveCameraSmoothly(Camera.main.transform, mainPos, transitionDuration));
     }
 
     IEnumerator MoveCameraSmoothly(Transform cameraTransform, Transform targetTransform, float duration)
