@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 25061555498257033}
   - component: {fileID: 25061555498257032}
   - component: {fileID: 25061555498257035}
+  - component: {fileID: 3022698938759620387}
   m_Layer: 0
-  m_Name: Amiya_002
+  m_Name: 002_Amiya_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,3 +120,27 @@ MonoBehaviour:
   _animationName: Start
   loop: 0
   timeScale: 1
+--- !u!114 &3022698938759620387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25061555498257034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d65543c02bada84c89f2930f08dba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  operInfo:
+    OperType: 1
+    OperElite: 2
+    OperAtkType: 2
+    Lv: 50
+    HP: 1773
+    AtkPower: 675
+    Defense: 117
+    MagicRes: 20
+    RestoreTime: 70
+    CardCost: 18
+    Block: 1

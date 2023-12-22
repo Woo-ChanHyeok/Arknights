@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: cb0e1f95f6e84684e9b8a96beec08ebc
+guid: b0a91c75971e6d947b8505d6128ea305
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2654128122543849418
-    second: 002_Amiya+_0
+      213: -3307494407119080879
+    second: 002_Amiya++_0
   - first:
-      213: -5390081555435739948
-    second: 002_Amiya+_1
+      213: 4120696930619139479
+    second: 002_Amiya++_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 002_Amiya+_0
+      name: 002_Amiya++_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 2048
+        height: 2048
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acfb99c177b55d420800000000000000
-      internalID: 2654128122543849418
+      spriteID: 152731f4c5b6912d0800000000000000
+      internalID: -3307494407119080879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 002_Amiya+_1
+      name: 002_Amiya++_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 950
-        height: 950
+        x: 441
+        y: 345
+        width: 1100
+        height: 1100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,8 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d42ed912659235b0800000000000000
-      internalID: -5390081555435739948
+      spriteID: 795a898a608af2930800000000000000
+      internalID: 4120696930619139479
       vertices: []
       indices: 
       edges: []

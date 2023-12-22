@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3894584071056785903}
   - component: {fileID: 3894584071056785902}
   m_Layer: 0
-  m_Name: 002_Amiya
+  m_Name: 002_Amiya_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
