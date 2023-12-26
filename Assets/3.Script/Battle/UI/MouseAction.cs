@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MyOperator : MonoBehaviour
+public class MouseAction : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject prefab; //마우스 따라다닐 이미지
     [SerializeField] private RectTransform prefabParent; // 프리팹 부모용
 
     [SerializeField] private GameObject OperInfo; //UI
@@ -17,9 +17,15 @@ public class MyOperator : MonoBehaviour
 
     private bool isDrag = false;
 
+    private int MapLayer;
+    private string FloorTag = "Floor";
+    private string UpperTag = "UpFloor";
+    public float mouseOverThreshold = 0.5f;
+
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
+        MapLayer = 1 << LayerMask.NameToLayer("Map");
     }
 
     private void Update()
@@ -83,8 +89,56 @@ public class MyOperator : MonoBehaviour
         Debug.Log("드래그중");
         if (Oper != null)
         {
-            Oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+            if (gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Upper))
+            {
+                MatColorSetter.instance.SetUpperFloorGreen();
+
+            }
+            else if (gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Floor))
+            {
+                MatColorSetter.instance.SetFloorGreen();
+
+            }
+
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(UpperTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Upper))
+            {
+                Debug.Log("UpperTag!");
+                // 마우스가 발판 위에 있을 때
+                Vector3 platformCenter = hit.collider.bounds.center;
+
+                // 발판의 너비와 높이의 일부분에만 반응
+                float halfWidth = hit.collider.bounds.size.x * 0.5f * mouseOverThreshold;
+                float halfHeight = hit.collider.bounds.size.z * 0.5f * mouseOverThreshold;
+
+                //float clampedX = Mathf.Clamp(ray.origin.x, platformCenter.x - halfWidth, platformCenter.x + halfWidth);
+                //float clampedZ = Mathf.Clamp(ray.origin.z, platformCenter.z - halfHeight, platformCenter.z + halfHeight);
+
+                // 고정할 오브젝트의 위치를 계산
+                //Oper.transform.position = new Vector3(clampedX, Oper.transform.position.y, clampedZ);
+
+                // 이곳에서 원하는 추가 동작 수행
+                Oper.transform.position = hit.collider.GetComponent<MeshFilter>().transform.position;
+                
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(FloorTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Floor))
+            {
+            }
+            else
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0f;
+                Oper.transform.position = mousePosition;
+                //Oper.transform.position = new Vector3();
+
+            }
         }
+
+
+
     }
 
     public void OnEndDrag()
@@ -101,6 +155,8 @@ public class MyOperator : MonoBehaviour
                 OperInfo.SetActive(false);
                 Destroy(Oper);
             }
+            MatColorSetter.instance.SetFloorZero();
+            MatColorSetter.instance.SetUpperFloorZero();
         }
     }
 

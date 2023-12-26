@@ -117,7 +117,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: Start
+  _animationName: Default
   loop: 0
   timeScale: 1
 --- !u!114 &3022698938759620387
@@ -134,13 +134,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   operInfo:
     OperType: 1
+    ClassType: 0
     OperElite: 2
     OperAtkType: 2
+    OperName: 
     Lv: 50
-    HP: 1773
+    CurrentHP: 0
+    MaxHP: 0
     AtkPower: 675
     Defense: 117
     MagicRes: 20
     RestoreTime: 70
     CardCost: 18
     Block: 1
+    Skil_Name: 
+    Skil_Info: 
+    CurrentSP: 0
+    MaxSP: 0
+  OperImage: []
+  SkilIcon: {fileID: 0}

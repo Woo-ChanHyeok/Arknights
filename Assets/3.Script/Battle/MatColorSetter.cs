@@ -5,9 +5,25 @@ using UnityEngine.Sprites;
 
 public class MatColorSetter : MonoBehaviour
 {
+    public static MatColorSetter instance= null;
     public Material Floor;
     public Material UpperFloor;
     float normalizedAlpha = 100f / 255f;
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            SetFloorZero();
+            SetUpperFloorZero();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     public void SetFloorGreen()
     {
