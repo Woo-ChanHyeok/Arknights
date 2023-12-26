@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,15 +16,20 @@ public class MouseAction : MonoBehaviour
 
     private bool isDrag = false;
 
+    [SerializeField] private bool isHoldOper = false;
+
     private int MapLayer;
     private string FloorTag = "Floor";
     private string UpperTag = "UpFloor";
     public float mouseOverThreshold = 0.5f;
+    private Plane plane;//마우스 따라오는 이미지용
+
 
     private void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         MapLayer = 1 << LayerMask.NameToLayer("Map");
+        plane = new Plane(Vector3.up, new Vector3(0, 0.23f, 0));
     }
 
     private void Update()
@@ -38,29 +42,39 @@ public class MouseAction : MonoBehaviour
         //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
         //Oper_InfoUpdater.instance.UpdateUI();
 
+        isHoldOper = false;
+
     }
 
     public void OnPointerUp()
     {
         if (isDrag)
             return;
-        OperStatus CurrentStatus = Oper_InfoUpdater.instance.operStatus;
-        Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
-        Oper_InfoUpdater.instance.UpdateUI();
+        else if (isHoldOper)
+            return;
 
-        if (!OperInfo.activeSelf)
+        else
         {
-            //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
-            //Oper_InfoUpdater.instance.UpdateUI();
-            cameraController.TiltCamera();
-            OperInfo.SetActive(true);
+
+
+            OperStatus CurrentStatus = Oper_InfoUpdater.instance.operStatus;
+            Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
+            Oper_InfoUpdater.instance.UpdateUI();
+
+            if (!OperInfo.activeSelf)
+            {
+                //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
+                //Oper_InfoUpdater.instance.UpdateUI();
+                cameraController.TiltCamera();
+                OperInfo.SetActive(true);
+            }
+            else if (OperInfo.activeSelf && Oper_InfoUpdater.instance.operStatus == CurrentStatus)
+            {
+                cameraController.RestoreCamera();
+                OperInfo.SetActive(false);
+            }
+            Debug.Log("뗐니?");
         }
-        else if (OperInfo.activeSelf && Oper_InfoUpdater.instance.operStatus == CurrentStatus)
-        {
-            cameraController.RestoreCamera();
-            OperInfo.SetActive(false);
-        }
-        Debug.Log("뗐니?");
     }
 
     public void OnBeginDrag()
@@ -110,30 +124,22 @@ public class MouseAction : MonoBehaviour
                 // 마우스가 발판 위에 있을 때
                 Vector3 platformCenter = hit.collider.bounds.center;
 
-                // 발판의 너비와 높이의 일부분에만 반응
-                float halfWidth = hit.collider.bounds.size.x * 0.5f * mouseOverThreshold;
-                float halfHeight = hit.collider.bounds.size.z * 0.5f * mouseOverThreshold;
-
-                //float clampedX = Mathf.Clamp(ray.origin.x, platformCenter.x - halfWidth, platformCenter.x + halfWidth);
-                //float clampedZ = Mathf.Clamp(ray.origin.z, platformCenter.z - halfHeight, platformCenter.z + halfHeight);
-
-                // 고정할 오브젝트의 위치를 계산
-                //Oper.transform.position = new Vector3(clampedX, Oper.transform.position.y, clampedZ);
-
-                // 이곳에서 원하는 추가 동작 수행
-                Oper.transform.position = hit.collider.GetComponent<MeshFilter>().transform.position;
-                
+                Oper.transform.position = hit.collider.transform.position;
+                isHoldOper = true;
             }
             else if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(FloorTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Floor))
             {
+
+                isHoldOper = true;
             }
             else
             {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.z = 0f;
-                Oper.transform.position = mousePosition;
-                //Oper.transform.position = new Vector3();
-
+                isHoldOper = false;
+                if (plane.Raycast(ray, out float distance))
+                {
+                    Vector3 hitPoint = ray.GetPoint(distance);
+                    Oper.transform.position = hitPoint;
+                }
             }
         }
 
@@ -146,7 +152,7 @@ public class MouseAction : MonoBehaviour
         if (isDrag)
         {
             Debug.Log("드래그 뗌");
-            if (Oper != null)
+            if (Oper != null && !isHoldOper)
             {
                 isDrag = false;
                 OperImgAlpha();
@@ -154,6 +160,10 @@ public class MouseAction : MonoBehaviour
                 OperImgTransformDefault();
                 OperInfo.SetActive(false);
                 Destroy(Oper);
+            }
+            else if (isHoldOper)
+            {
+                charMenuFrame.instance.SetPos(Oper.transform.position);
             }
             MatColorSetter.instance.SetFloorZero();
             MatColorSetter.instance.SetUpperFloorZero();

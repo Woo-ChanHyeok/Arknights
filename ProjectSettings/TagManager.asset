@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - UpFloor
+  - Plane
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
     locked: 0
   - name: Oper
     uniqueID: 1314028391
+    locked: 0
+  - name: Map
+    uniqueID: 2034235617
     locked: 0
