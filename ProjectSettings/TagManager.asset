@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - UpFloor
   - Plane
+  - Operator
+  - PlaceOperInfo
   layers:
   - Default
   - TransparentFX

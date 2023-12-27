@@ -8,6 +8,18 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform secondPos;
     public float transitionDuration = 0.1f; // 전환 시간을 0.1초로 설정
 
+    public static CameraController instance = null;
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void TiltCamera()
     {
         StartCoroutine(MoveCameraSmoothly(Camera.main.transform, secondPos, transitionDuration));

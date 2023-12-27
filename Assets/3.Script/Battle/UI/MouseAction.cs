@@ -1,18 +1,27 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Spine.Unity;
 
 public class MouseAction : MonoBehaviour
 {
     [SerializeField] private GameObject prefab; //마우스 따라다닐 이미지
     [SerializeField] private RectTransform prefabParent; // 프리팹 부모용
 
+    private OperStatus operStat;
+
+    [SerializeField] private GameObject InstantiatePrefabs;
+    [SerializeField] private Transform InstantiateParent;
+    //[SerializeField] private SkeletonDataAsset[] skelData;
+
+    [SerializeField] private RectTransform IconRect;
+    [SerializeField] private Image OperIcon;
+    [SerializeField] private Sprite[] OperIcon_img;
     [SerializeField] private GameObject OperInfo; //UI
 
     [SerializeField] private Image OperImg;
 
-    private CameraController cameraController;
-    private GameObject Oper;
+    private GameObject Oper; //FollowImg용
 
     private bool isDrag = false;
 
@@ -27,9 +36,14 @@ public class MouseAction : MonoBehaviour
 
     private void Start()
     {
-        cameraController = Camera.main.GetComponent<CameraController>();
+        TryGetComponent(out operStat);
+        TryGetComponent(out IconRect);
         MapLayer = 1 << LayerMask.NameToLayer("Map");
         plane = new Plane(Vector3.up, new Vector3(0, 0.23f, 0));
+
+
+
+        DecideIcon_img();
     }
 
     private void Update()
@@ -65,12 +79,14 @@ public class MouseAction : MonoBehaviour
             {
                 //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
                 //Oper_InfoUpdater.instance.UpdateUI();
-                cameraController.TiltCamera();
+                IconPosUp();
+                CameraController.instance.TiltCamera();
                 OperInfo.SetActive(true);
             }
             else if (OperInfo.activeSelf && Oper_InfoUpdater.instance.operStatus == CurrentStatus)
             {
-                cameraController.RestoreCamera();
+                IconPosDown();
+                CameraController.instance.RestoreCamera();
                 OperInfo.SetActive(false);
             }
             Debug.Log("뗐니?");
@@ -80,7 +96,8 @@ public class MouseAction : MonoBehaviour
     public void OnBeginDrag()
     {
         Debug.Log("드래그시작");
-        //Invoke("test",0.1f);
+        charMenuFrame.instance.mouseAction = this;
+
         GameObject oper = Instantiate(prefab);
         oper.transform.parent = prefabParent;
         oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -93,8 +110,8 @@ public class MouseAction : MonoBehaviour
         OperImgAlphaZero();
         OperImgTransform();
 
-
-        cameraController.TiltCamera();
+        IconPosUp();
+        CameraController.instance.TiltCamera();
         OperInfo.SetActive(true);
     }
 
@@ -124,13 +141,19 @@ public class MouseAction : MonoBehaviour
                 // 마우스가 발판 위에 있을 때
                 Vector3 platformCenter = hit.collider.bounds.center;
 
-                Oper.transform.position = hit.collider.transform.position;
+                Oper.transform.position = hit.collider.transform.position + new Vector3(0, 0, -0.3f);
                 isHoldOper = true;
+                InstantiateParent = hit.collider.transform;
             }
             else if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(FloorTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Floor))
             {
+                Debug.Log("FloorTag!");
+                // 마우스가 발판 위에 있을 때
+                Vector3 platformCenter = hit.collider.bounds.center;
 
+                Oper.transform.position = hit.collider.transform.position + new Vector3(0, 0, -0.2f);
                 isHoldOper = true;
+                InstantiateParent = hit.collider.transform;
             }
             else
             {
@@ -156,10 +179,12 @@ public class MouseAction : MonoBehaviour
             {
                 isDrag = false;
                 OperImgAlpha();
-                cameraController.RestoreCamera();
+                CameraController.instance.RestoreCamera();
                 OperImgTransformDefault();
                 OperInfo.SetActive(false);
                 Destroy(Oper);
+                IconPosDown();
+
             }
             else if (isHoldOper)
             {
@@ -167,6 +192,10 @@ public class MouseAction : MonoBehaviour
             }
             MatColorSetter.instance.SetFloorZero();
             MatColorSetter.instance.SetUpperFloorZero();
+        }
+        else
+        {
+            IconPosDown();
         }
     }
 
@@ -210,14 +239,73 @@ public class MouseAction : MonoBehaviour
         OperImg.color = new Color(OperImg.color.r, OperImg.color.g, OperImg.color.b, 0.3f);
 
     }
+    public void IconPosUp()
+    {
+        //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 200f);
+        Debug.Log(IconRect.transform.position);
+        IconRect.transform.position = new Vector3(IconRect.transform.position.x, 107.5f, IconRect.transform.position.z);
+    }
+    public void IconPosDown()
+    {
+        //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 155f);
+        IconRect.transform.position = new Vector3(IconRect.transform.position.x, 77.5f, IconRect.transform.position.z);
+    }
 
+    public void instantiateOper()
+    {
+        GameObject Operator = Instantiate(InstantiatePrefabs, InstantiateParent.position, new Quaternion(0,0,0,0) , InstantiateParent);
+        Operator.transform.localPosition += new Vector3(0, 0.5f, 0);
+        
+        GameObject frame = Operator.transform.GetChild(0).gameObject;
+        //GameObject realOper = GetComponentInChildren<GameObject>();
+        SkeletonAnimation skelAni = Operator.GetComponentInChildren<SkeletonAnimation>();
+        OperSkeletonData skelData = Operator.GetComponentInChildren<OperSkeletonData>();
+        SkeletonDataAsset Front = skelData.FrontAsset;
+        SkeletonDataAsset Back = skelData.BackAsset;
 
-    //public void test()
-    //{
-    //    GameObject oper = Instantiate(prefab);
-    //    oper.transform.parent = Canvas;
-    //    oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-    //    Oper = oper;
-    //}
+        if (charMenuFrame.instance.isLeft)
+        {
+            frame.transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
+            skelAni.gameObject.transform.localScale = new Vector3(-0.27f, 0.27f, 0.27f);
+        }
+        else if (charMenuFrame.instance.isRight)
+        {
+            frame.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            skelAni.gameObject.transform.localScale = new Vector3(0.27f, 0.27f, 0.27f);
+        }
+        else if (charMenuFrame.instance.isUp)
+        {
+            frame.transform.localRotation = Quaternion.Euler(0, 0, 90f);
+            skelAni.skeletonDataAsset = Back;
+            skelAni.AnimationState.ClearTracks();
+            skelAni.Initialize(true);
+            skelAni.AnimationState.SetAnimation(0, "Start", false);
+            skelAni.AnimationState.AddAnimation(0, "Idle", true, 0);
+        }
+        else if (charMenuFrame.instance.isDown)
+        {
+            frame.transform.localRotation = Quaternion.Euler(0, 0, -90f);
+        }
+        Destroy(Oper);
+        IconPosDown();
+
+    }
+
+    private void DecideIcon_img()
+    {
+        if (operStat.operInfo.OperElite.Equals(EliteType.Default))
+        {
+            OperIcon.sprite = OperIcon_img[0];
+        }
+        else if (operStat.operInfo.OperElite.Equals(EliteType.Elite1))
+        {
+            OperIcon.sprite = OperIcon_img[1];
+        }
+        else if (operStat.operInfo.OperElite.Equals(EliteType.Elite2))
+        {
+            OperIcon.sprite = OperIcon_img[2];
+
+        }
+    }
 
 }
