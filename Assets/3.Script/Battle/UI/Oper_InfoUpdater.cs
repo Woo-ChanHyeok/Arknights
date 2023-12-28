@@ -73,4 +73,42 @@ public class Oper_InfoUpdater : MonoBehaviour
         Skil_Name.text = operInfo.Skil_Name;
         Skil_Info.text = operInfo.Skil_Info;
     }
+
+    public IEnumerator MoveImgSmooth(Vector3 ImgPos, Vector3 targetTransform, float duration)
+    {
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < duration)
+        {
+            // Lerp를 사용하여 부드러운 전환
+            ImgPos = Vector3.Lerp(ImgPos, targetTransform, elapsedTime / duration);
+            OperImg.rectTransform.localPosition = ImgPos;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        // 전환 완료 후 위치 
+        OperImg.rectTransform.localPosition = targetTransform;
+    }
+
+    public void OperImgTransform()
+    {
+        Vector3 target = new Vector3(-165, 0, 0);
+        StartCoroutine(MoveImgSmooth(OperImg.rectTransform.localPosition, target, 0.1f));
+
+    }
+    public void OperImgTransformDefault()
+    {
+        Vector3 target = new Vector3(-35, 0, 0);
+        OperImg.rectTransform.localPosition = target;
+    }
+    public void OperImgAlpha()
+    {
+        OperImg.color = new Color(OperImg.color.r, OperImg.color.g, OperImg.color.b, 1f);
+    }
+    public void OperImgAlphaZero()
+    {
+        OperImg.color = new Color(OperImg.color.r, OperImg.color.g, OperImg.color.b, 0.3f);
+
+    }
+
 }

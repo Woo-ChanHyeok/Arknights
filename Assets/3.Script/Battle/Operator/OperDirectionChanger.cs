@@ -21,34 +21,34 @@ public class OperDirectionChanger : MonoBehaviour
 
     private void Update()
     {
-        if (charMenuFrame.instance.isLeft)
+        if (CharMenuFrame.instance.isLeft)
         {
             skelAni.skeletonDataAsset = skelData[0];
             skelAni.Initialize(true);
             transform.localScale = new Vector3(-0.27f, originalTransform.localScale.y, originalTransform.localScale.z);
         }
-        else if (charMenuFrame.instance.isRight)
+        else if (CharMenuFrame.instance.isRight)
         {
             skelAni.skeletonDataAsset = skelData[0];
             skelAni.Initialize(true);
             transform.localScale = new Vector3(0.27f, originalTransform.localScale.y, originalTransform.localScale.z);
 
         }
-        else if (charMenuFrame.instance.isUp)
+        else if (CharMenuFrame.instance.isUp)
         {
             skelAni.skeletonDataAsset = skelData[1];
             skelAni.Initialize(true);
             transform.localScale = originalTransform.localScale;
 
         }
-        else if (charMenuFrame.instance.isDown)
+        else if (CharMenuFrame.instance.isDown)
         {
             skelAni.skeletonDataAsset = skelData[0];
             skelAni.Initialize(true);
             transform.localScale = originalTransform.localScale;
 
         }
-        else if (charMenuFrame.instance.isCenter)
+        else if (CharMenuFrame.instance.isCenter)
         {
             //skelAni.skeletonDataAsset = skelData[0];
             //skelAni.Initialize(true);

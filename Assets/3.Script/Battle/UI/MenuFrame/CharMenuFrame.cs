@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class charMenuFrame : MonoBehaviour
+public class CharMenuFrame : MonoBehaviour
 {
-    public static charMenuFrame instance = null;
+    public static CharMenuFrame instance = null;
 
     public MouseAction mouseAction;
 
@@ -152,7 +152,6 @@ public class charMenuFrame : MonoBehaviour
         DirectionImg("");
         MenuUI.SetActive(false);
         Frame.SetActive(false);
-        mouseAction.IconPosDown();
     }
 
     private void TurnOnCancel_Btn()

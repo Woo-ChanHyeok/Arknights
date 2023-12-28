@@ -20,6 +20,7 @@ public class MouseAction : MonoBehaviour
     [SerializeField] private GameObject OperInfo; //UI
 
     [SerializeField] private Image OperImg;
+    [SerializeField] private Image ChosenImg;
 
     private GameObject Oper; //FollowImg용
 
@@ -48,13 +49,19 @@ public class MouseAction : MonoBehaviour
 
     private void Update()
     {
+        if (Oper_InfoUpdater.instance.operStatus == operStat && OperInfo.activeSelf)
+        {
+            IconPosUp();
+        }
+        else
+        {
+            IconPosDown();
+        }
     }
 
     public void OnPointerDown()
     {
         Debug.Log("눌렀니?");
-        //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
-        //Oper_InfoUpdater.instance.UpdateUI();
 
         isHoldOper = false;
 
@@ -74,29 +81,30 @@ public class MouseAction : MonoBehaviour
             OperStatus CurrentStatus = Oper_InfoUpdater.instance.operStatus;
             Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
             Oper_InfoUpdater.instance.UpdateUI();
+            Oper_InfoUpdater.instance.OperImgTransformDefault();
+            Oper_InfoUpdater.instance.OperImgAlpha();
 
             if (!OperInfo.activeSelf)
             {
                 //Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
                 //Oper_InfoUpdater.instance.UpdateUI();
-                IconPosUp();
                 CameraController.instance.TiltCamera();
                 OperInfo.SetActive(true);
             }
             else if (OperInfo.activeSelf && Oper_InfoUpdater.instance.operStatus == CurrentStatus)
             {
-                IconPosDown();
                 CameraController.instance.RestoreCamera();
                 OperInfo.SetActive(false);
             }
             Debug.Log("뗐니?");
         }
+        PlaceOperFrame.instance.Frame.SetActive(false);
     }
 
     public void OnBeginDrag()
     {
         Debug.Log("드래그시작");
-        charMenuFrame.instance.mouseAction = this;
+        CharMenuFrame.instance.mouseAction = this;
 
         GameObject oper = Instantiate(prefab);
         oper.transform.parent = prefabParent;
@@ -107,10 +115,10 @@ public class MouseAction : MonoBehaviour
         Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
         Oper_InfoUpdater.instance.UpdateUI();
 
-        OperImgAlphaZero();
-        OperImgTransform();
+        Oper_InfoUpdater.instance.OperImgAlphaZero();
+        Oper_InfoUpdater.instance.OperImgTransform();
 
-        IconPosUp();
+
         CameraController.instance.TiltCamera();
         OperInfo.SetActive(true);
     }
@@ -138,7 +146,6 @@ public class MouseAction : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(UpperTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Upper))
             {
                 Debug.Log("UpperTag!");
-                // 마우스가 발판 위에 있을 때
                 Vector3 platformCenter = hit.collider.bounds.center;
 
                 Oper.transform.position = hit.collider.transform.position + new Vector3(0, 0, -0.3f);
@@ -148,7 +155,6 @@ public class MouseAction : MonoBehaviour
             else if (Physics.Raycast(ray, out hit, Mathf.Infinity, MapLayer) && hit.collider.CompareTag(FloorTag) && gameObject.GetComponent<OperStatus>().operInfo.OperType.Equals(PositionType.Floor))
             {
                 Debug.Log("FloorTag!");
-                // 마우스가 발판 위에 있을 때
                 Vector3 platformCenter = hit.collider.bounds.center;
 
                 Oper.transform.position = hit.collider.transform.position + new Vector3(0, 0, -0.2f);
@@ -178,77 +184,38 @@ public class MouseAction : MonoBehaviour
             if (Oper != null && !isHoldOper)
             {
                 isDrag = false;
-                OperImgAlpha();
+                Oper_InfoUpdater.instance.OperImgAlpha();
                 CameraController.instance.RestoreCamera();
-                OperImgTransformDefault();
+                Oper_InfoUpdater.instance.OperImgTransformDefault();
                 OperInfo.SetActive(false);
                 Destroy(Oper);
-                IconPosDown();
 
             }
             else if (isHoldOper)
             {
-                charMenuFrame.instance.SetPos(Oper.transform.position);
+                CharMenuFrame.instance.SetPos(Oper.transform.position);
             }
             MatColorSetter.instance.SetFloorZero();
             MatColorSetter.instance.SetUpperFloorZero();
         }
         else
         {
-            IconPosDown();
+
         }
     }
 
-
-
-
-    private IEnumerator MoveImgSmooth(Vector3 ImgPos, Vector3 targetTransform, float duration)
-    {
-        float elapsedTime = 0.0f;
-
-        while (elapsedTime < duration)
-        {
-            // Lerp를 사용하여 부드러운 전환
-            ImgPos = Vector3.Lerp(ImgPos, targetTransform, elapsedTime / duration);
-            OperImg.rectTransform.localPosition = ImgPos;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        // 전환 완료 후 위치 
-        OperImg.rectTransform.localPosition = targetTransform;
-    }
-
-    private void OperImgTransform()
-    {
-        Vector3 target = new Vector3(-165, 0, 0);
-        StartCoroutine(MoveImgSmooth(OperImg.rectTransform.localPosition, target, 0.1f));
-
-    }
-    private void OperImgTransformDefault()
-    {
-        Vector3 target = new Vector3(-35, 0, 0);
-        OperImg.rectTransform.localPosition = target;
-        //StartCoroutine(MoveImgSmooth(OperImg.transform, target, 0.1f));
-    }
-    private void OperImgAlpha()
-    {
-        OperImg.color = new Color(OperImg.color.r, OperImg.color.g, OperImg.color.b, 1f);
-    }
-    private void OperImgAlphaZero()
-    {
-        OperImg.color = new Color(OperImg.color.r, OperImg.color.g, OperImg.color.b, 0.3f);
-
-    }
     public void IconPosUp()
     {
         //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 200f);
         Debug.Log(IconRect.transform.position);
         IconRect.transform.position = new Vector3(IconRect.transform.position.x, 107.5f, IconRect.transform.position.z);
+        ChosenImg.enabled = true;
     }
     public void IconPosDown()
     {
         //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 155f);
         IconRect.transform.position = new Vector3(IconRect.transform.position.x, 77.5f, IconRect.transform.position.z);
+        ChosenImg.enabled = false;
     }
 
     public void instantiateOper()
@@ -263,17 +230,17 @@ public class MouseAction : MonoBehaviour
         SkeletonDataAsset Front = skelData.FrontAsset;
         SkeletonDataAsset Back = skelData.BackAsset;
 
-        if (charMenuFrame.instance.isLeft)
+        if (CharMenuFrame.instance.isLeft)
         {
             frame.transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
             skelAni.gameObject.transform.localScale = new Vector3(-0.27f, 0.27f, 0.27f);
         }
-        else if (charMenuFrame.instance.isRight)
+        else if (CharMenuFrame.instance.isRight)
         {
             frame.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             skelAni.gameObject.transform.localScale = new Vector3(0.27f, 0.27f, 0.27f);
         }
-        else if (charMenuFrame.instance.isUp)
+        else if (CharMenuFrame.instance.isUp)
         {
             frame.transform.localRotation = Quaternion.Euler(0, 0, 90f);
             skelAni.skeletonDataAsset = Back;
@@ -282,12 +249,11 @@ public class MouseAction : MonoBehaviour
             skelAni.AnimationState.SetAnimation(0, "Start", false);
             skelAni.AnimationState.AddAnimation(0, "Idle", true, 0);
         }
-        else if (charMenuFrame.instance.isDown)
+        else if (CharMenuFrame.instance.isDown)
         {
             frame.transform.localRotation = Quaternion.Euler(0, 0, -90f);
         }
         Destroy(Oper);
-        IconPosDown();
 
     }
 
