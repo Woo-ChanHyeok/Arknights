@@ -3,52 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AtkRange : MonoBehaviour
-{ 
-    public Collider[] colls1;
-    public Collider[] colls2;
-    public Vector3 center1 = new Vector3(0, 0, -0.5f);
-    public Vector3 boxSize1 = new Vector3(3, 3, 1);    
-    public Vector3 center2 = new Vector3(0, 0, -0.5f);
-    public Vector3 boxSize2 = new Vector3(3, 3, 1);
-
-    private int floorLayer;
-
-    private void Start()
+{
+    private bool isOn = false;
+    private void OnTriggerStay(Collider other)
     {
-        floorLayer = 1 << LayerMask.NameToLayer("AtkRange");
-    }
-    void Update()
-    {
-        DisableRange();
-        colls1 = Physics.OverlapBox(transform.TransformPoint(center1), boxSize1 * 0.5f, transform.rotation, floorLayer);
-        colls2 = Physics.OverlapBox(transform.position + center2, boxSize2 * 0.5f, transform.rotation, floorLayer);
-        for(int i = 0; i < colls1.Length; i++)
+        if (other.CompareTag("AtkRange") && isOn)
         {
-            colls1[i].GetComponent<MeshRenderer>().enabled = true;
-        }
-        for (int i = 0; i < colls2.Length; i++)
-        {
-            colls2[i].GetComponent<MeshRenderer>().enabled = true;
+            other.GetComponent<MeshRenderer>().enabled = true;
         }
     }
-    private void DisableRange()
+    private void OnTriggerExit(Collider other)
     {
-        for (int i = 0; i < colls1.Length; i++)
+        if (other.CompareTag("AtkRange"))
         {
-            colls1[i].GetComponent<MeshRenderer>().enabled = false;
-        }
-        for (int i = 0; i < colls2.Length; i++)
-        {
-            colls2[i].GetComponent<MeshRenderer>().enabled = false;
+            other.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
-    void OnDrawGizmos()
+    private void OnEnable()
     {
-        Gizmos.color = Color.yellow;
-        //Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.position, Quaternion.Euler(-90, 0, 0), Vector3.one);
-        //Gizmos.matrix = rotationMatrix;
-        Gizmos.DrawWireCube(transform.position + center1, boxSize1);
-        Gizmos.DrawWireCube(transform.position + center2, boxSize2);
+        isOn = true;
+    }
+    private void OnDisable()
+    {
+        isOn = false;
+        AtkRangeOffManager.instance.MeshRendererOff();
+    }
+
+    public void DefaultDirection()
+    {
+        gameObject.transform.localRotation = Quaternion.Euler(36.5f, 0, 0);
+    }
+    public void UpDirection()
+    {
+        gameObject.transform.localRotation = Quaternion.Euler(36.5f, 0, 90);
+    }
+    public void DownDirection()
+    {
+        gameObject.transform.localRotation = Quaternion.Euler(36.5f, 0, -90);
     }
 }

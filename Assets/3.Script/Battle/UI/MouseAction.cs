@@ -26,7 +26,7 @@ public class MouseAction : MonoBehaviour
 
     private bool isDrag = false;
 
-    [SerializeField] private bool isHoldOper = false;
+    [SerializeField] public static bool isHoldOper = false;
 
     private int MapLayer;
     private string FloorTag = "Floor";
@@ -105,7 +105,7 @@ public class MouseAction : MonoBehaviour
     {
         Debug.Log("드래그시작");
         CharMenuFrame.instance.mouseAction = this;
-
+        PlaceOperFrame.instance.UIOff();
         GameObject oper = Instantiate(prefab);
         oper.transform.parent = prefabParent;
         oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -227,6 +227,7 @@ public class MouseAction : MonoBehaviour
         //GameObject realOper = GetComponentInChildren<GameObject>();
         SkeletonAnimation skelAni = Operator.GetComponentInChildren<SkeletonAnimation>();
         OperSkeletonData skelData = Operator.GetComponentInChildren<OperSkeletonData>();
+        AtkRange atkRange = Operator.GetComponentInChildren<AtkRange>();
         SkeletonDataAsset Front = skelData.FrontAsset;
         SkeletonDataAsset Back = skelData.BackAsset;
 
@@ -234,11 +235,13 @@ public class MouseAction : MonoBehaviour
         {
             frame.transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
             skelAni.gameObject.transform.localScale = new Vector3(-0.27f, 0.27f, 0.27f);
+            //atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, 0);
         }
         else if (CharMenuFrame.instance.isRight)
         {
             frame.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             skelAni.gameObject.transform.localScale = new Vector3(0.27f, 0.27f, 0.27f);
+            //atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, 180);
         }
         else if (CharMenuFrame.instance.isUp)
         {
@@ -248,10 +251,12 @@ public class MouseAction : MonoBehaviour
             skelAni.Initialize(true);
             skelAni.AnimationState.SetAnimation(0, "Start", false);
             skelAni.AnimationState.AddAnimation(0, "Idle", true, 0);
+            atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, 90);
         }
         else if (CharMenuFrame.instance.isDown)
         {
             frame.transform.localRotation = Quaternion.Euler(0, 0, -90f);
+            atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, -90);
         }
         Destroy(Oper);
 
