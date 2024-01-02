@@ -1,0 +1,79 @@
+{
+  "Files": [
+    {
+      "Name": "cab-374c777ce38840c47301d29986e9f61f",
+      "Assets": [
+        {
+          "PathID": -9183901996248696857,
+          "Name": "SelectorTrigger",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8101754533345230649,
+          "Name": "MultiRangedAttack",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -6331704112220391637,
+          "Name": "Talent",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4730059218100277127,
+          "Name": "Character",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3505220400313462262,
+          "Name": "AdvancedSelector",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1090173730916111395,
+          "Name": "RangedAttack",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1404023811573923180,
+          "Name": "SimpleUnitAnimatorHooker",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1857723437392520159,
+          "Name": "UnitMode",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1894152146091018786,
+          "Name": "ThreePartOneshotAnimation",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1989622337588801895,
+          "Name": "PassiveBuffAbility",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2220341282174260782,
+          "Name": "RandomSelector",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 3576160776189679015,
+          "Name": "AutoLoadBoxRange",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 3760192435326485628,
+          "Name": "ShadowController",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 8874440582118491038,
+          "Name": "UberEffectEmitter",
+          "Type": "MonoScript"
+        }
+      ]
+    }
+  ]
+}

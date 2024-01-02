@@ -1,0 +1,169 @@
+{
+  "Files": [
+    {
+      "Name": "cab-bbbcf65e7b8390f086894219140067d6",
+      "Assets": [
+        {
+          "PathID": -6975999976508976359,
+          "Name": "Sphere001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6449717347218743603,
+          "Name": "FxUVTweener",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -6284684099788859448,
+          "Name": "Sphere001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6177417461275848580,
+          "Name": "Cylinder001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5640254872851428226,
+          "Name": "Plane002",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5289426541871030539,
+          "Name": "Plane002",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4680852127573645413,
+          "Name": "migong_02",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4272542791815895264,
+          "Name": "FxDelay",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3671933511448677250,
+          "Name": "Plane001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1921856615950721517,
+          "Name": "Default-Particle",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -707329370343170291,
+          "Name": "amiya_test#1_06",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 352648543072704646,
+          "Name": "amiya_test#1_03",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1326761254676607085,
+          "Name": "Plane001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1845990993673679297,
+          "Name": "Plane008",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2425143867486060184,
+          "Name": "FxLODSetting",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2445782064593938197,
+          "Name": "amiya_test#1_05",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2572590040219661476,
+          "Name": "fangkuai_02",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3175240045084516169,
+          "Name": "trail_15",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3215588582303158012,
+          "Name": "amiya_test#1_01",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3699592691374749116,
+          "Name": "Plane003",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3802811649894215026,
+          "Name": "Sphere002",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4088785051340777762,
+          "Name": "FollowDirection",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 4965560968633657218,
+          "Name": "Cone001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5134415004297598524,
+          "Name": "ray_17",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5274178872227590938,
+          "Name": "Plane002",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5649125544679810951,
+          "Name": "amiya_test#1_04",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5720586096441391155,
+          "Name": "Sphere001",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5932310405158439042,
+          "Name": "migong_01",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6358368667561303512,
+          "Name": "ProjectileEffect",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 7803986686892112148,
+          "Name": "ParticleEffect",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 7972292162382940153,
+          "Name": "migong_03",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8914133915694832629,
+          "Name": "object_04",
+          "Type": "Texture2D"
+        }
+      ]
+    }
+  ]
+}
