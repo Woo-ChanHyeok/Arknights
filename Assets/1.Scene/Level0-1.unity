@@ -17492,7 +17492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6500543270416430161, guid: 498bb240b586dac40a9d61458c397811, type: 3}
       propertyPath: _animationName
-      value: Default
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 6500543270416430161, guid: 498bb240b586dac40a9d61458c397811, type: 3}
       propertyPath: skeletonDataAsset
