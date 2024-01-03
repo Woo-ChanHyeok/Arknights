@@ -11,6 +11,8 @@ TagManager:
   - PlaceOperInfo
   - AtkRange
   - Enemy
+  - endBox
+  - Effect
   layers:
   - Default
   - TransparentFX

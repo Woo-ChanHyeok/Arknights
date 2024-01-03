@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
             cameraTransform.position = Vector3.Lerp(initialPosition, targetTransform.position, elapsedTime / duration);
             cameraTransform.rotation = Quaternion.Slerp(initialRotation, targetTransform.rotation, elapsedTime / duration);
 
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.fixedDeltaTime;
             yield return null;
         }
 

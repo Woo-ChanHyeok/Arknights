@@ -146,7 +146,7 @@ MonoBehaviour:
     CurrentHP: 10
     MaxHP: 100
     AtkPower: 675
-    AtkSpeed: 1.6
+    AtkDelay: 1.6
     Defense: 117
     MagicRes: 20
     RestoreTime: 70

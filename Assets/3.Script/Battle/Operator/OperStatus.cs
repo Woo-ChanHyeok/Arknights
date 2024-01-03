@@ -44,7 +44,7 @@ public class OperInfo
     public int CurrentHP;
     public int MaxHP;
     public int AtkPower;
-    public float AtkSpeed;
+    public float AtkDelay;
     public int Defense;
     public int MagicRes;
     public float RestoreTime;
