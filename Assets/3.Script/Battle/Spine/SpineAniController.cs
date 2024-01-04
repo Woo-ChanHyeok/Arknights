@@ -36,6 +36,7 @@ public class SpineAniController : MonoBehaviour
     public void EndAttack()
     {
         Ani.AnimationState.SetAnimation(0, "Attack_End", false);
+        Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
     }
 
     //----------------------------Ω∫ƒÃ∑π≈Ê µ•¿Ã≈Õ-------------------------------
@@ -57,6 +58,7 @@ public class SpineAniController : MonoBehaviour
             Ani.Initialize(true);
         }
     }
+    //----------------------------Ω∫ƒÃ∑π≈Ê µ•¿Ã≈Õ-------------------------------
 
 
 

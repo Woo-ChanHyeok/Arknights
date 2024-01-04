@@ -5,23 +5,36 @@ using Spine.Unity;
 
 public class AmiyaAtkManager : AtkManager
 {
-    public float initialSpeed = 2f;
-    public float acceleration = 5f;
+    public float initialSpeed = 5f;
+    public float acceleration = 8f;
     public GameObject projectile;
+    public GameObject projectileParent;
 
-    [SerializeField] private GameObject FrontAtkEffect;
+    private GameObject FrontAtkEffect;
     private GameObject BackAtkEffect;
 
     private void Start()
     {
         FrontAtkEffect = effect.transform.GetChild(0).gameObject;
         BackAtkEffect = effect.transform.GetChild(1).gameObject;
+        projectileParent = skelAni.transform.parent.transform.Find("ProjectileParent").gameObject;
         skelAni.AnimationState.Event += SpineEventHandler;
     }
     public override void AttackEnemy(GameObject Enemy)
     {
-        if (operStatus.operInfo.AtkDelay > elapsedTime)
+        if (operStatus.operInfo.AtkDelay > elapsedTime && skelAni.AnimationName.Equals("Attack"))
             return;
+
+        if (directionCalculator(Enemy))
+        {
+            //¿À¸¥
+            StartCoroutine(ScalePlus(skelAni.gameObject));
+        }
+        else
+        {
+            StartCoroutine(ScaleMinus(skelAni.gameObject));
+        }
+
         SkeletonDataAsset Current = skelAni.skeletonDataAsset;
         if(skelAni.AnimationName == "Idle")
         {
@@ -37,10 +50,9 @@ public class AmiyaAtkManager : AtkManager
             {
                 skelAni.AnimationState.Event += SpineEventHandler;
             }
-            directionCalculator(Enemy);
             spineAniController.StartAttack();
         }
-        else
+        else if(skelAni.AnimationName == "Attack")
         {
             if (AngleCalculator(Enemy))
             {
@@ -54,7 +66,6 @@ public class AmiyaAtkManager : AtkManager
             {
                 skelAni.AnimationState.Event += SpineEventHandler;
             }
-            directionCalculator(Enemy);
             spineAniController.AttackStay();
         }
 
@@ -65,8 +76,8 @@ public class AmiyaAtkManager : AtkManager
     {
         EffectOff();
         EffectOn();
-        GameObject projectile1 = Instantiate(projectile, transform.position, Quaternion.identity, transform);
-        GameObject projectile2 = Instantiate(projectile, transform.position, Quaternion.identity, transform);
+        GameObject projectile1 = Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
+        GameObject projectile2 = Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
 
         StartCoroutine(MovementProjectile(projectile1));
         StartCoroutine(MovementProjectile(projectile2));
@@ -74,13 +85,12 @@ public class AmiyaAtkManager : AtkManager
 
     private IEnumerator MovementProjectile(GameObject projectile)
     {
-        //projectile.transform.Translate(new Vector3(-0.3f, 0.3f, 0.0f) * initialSpeed * Time.deltaTime);
-        var Position = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 1f), 0);
-        var Pos = transform.position + Position;
+        Vector2 RanVec = new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(0, 0.6f));
+        
         float time = 0;
         while (Target != null && time < 0.2f)
         {
-            projectile.transform.Translate(Pos * initialSpeed * Time.deltaTime);
+            projectile.transform.Translate(RanVec.normalized * initialSpeed * Time.deltaTime);
             time += Time.deltaTime;
             yield return null;
         }

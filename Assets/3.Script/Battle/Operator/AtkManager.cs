@@ -12,6 +12,9 @@ public class AtkManager : MonoBehaviour
     public OperStatus operStatus;
     public GameObject effect;
 
+    private Vector3 PlusScale = new Vector3(0.27f, 0.27f, 0.27f);
+    private Vector3 MinusScale = new Vector3(-0.27f, 0.27f, 0.27f);
+
     public GameObject Target;
 
     public float elapsedTime = 0f;
@@ -28,7 +31,7 @@ public class AtkManager : MonoBehaviour
     {
         DecideState();
         //if (Target != null)
-        elapsedTime += Time.fixedDeltaTime;
+        elapsedTime += Time.deltaTime;
     }
     private void DecideState()
     {
@@ -39,7 +42,6 @@ public class AtkManager : MonoBehaviour
             {
                 skelAni.ClearState();
                 spineAniController.EndAttack();
-                spineAniController.AddIdle();
             }
             //else if (skelAni.AnimationName != "Idle")
             //{
@@ -102,4 +104,24 @@ public class AtkManager : MonoBehaviour
             return false;
         }
     }
+
+    public IEnumerator ScaleMinus(GameObject gameObject)
+    {
+        while (Vector3.Distance(gameObject.transform.localScale, MinusScale) > 0.01f)
+        {
+            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, MinusScale, 10f * Time.deltaTime);
+            yield return null;
+        }
+        gameObject.transform.localScale = MinusScale;
+    }
+    public IEnumerator ScalePlus(GameObject gameObject)
+    {
+        while (Vector3.Distance(gameObject.transform.localScale, PlusScale) > 0.01f)
+        {
+            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, PlusScale, 10f * Time.deltaTime);
+            yield return null;
+        }
+        gameObject.transform.localScale = PlusScale;
+    }
+
 }

@@ -28,10 +28,11 @@ public class Oper_InfoUpdater : MonoBehaviour
 
     [SerializeField] private Sprite[] ClassImg;
     [SerializeField] private Sprite[] EliteIcon;
-    void Start()
+    public Sprite[] ClassIcon;
+    private void Awake()
     {
         TryGetComponent(out operStatus);
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             return;

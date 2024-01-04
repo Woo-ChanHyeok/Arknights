@@ -9,8 +9,10 @@ public class AmiyaProjectile : MonoBehaviour
     private int damage = 0;
     void Start()
     {
-        atkManager = GetComponentInParent<AmiyaAtkManager>();
-        operstatus = GetComponentInParent<OperStatus>();
+        operstatus = transform.parent.parent.GetComponentInChildren<OperStatus>();
+        atkManager = transform.parent.parent.GetComponentInChildren<AmiyaAtkManager>();
+        //atkManager = GetComponentInParent<AmiyaAtkManager>();
+        //operstatus = GetComponentInParent<OperStatus>();
     }
 
     private void Update()
