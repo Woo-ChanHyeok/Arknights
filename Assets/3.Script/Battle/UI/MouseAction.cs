@@ -76,8 +76,6 @@ public class MouseAction : MonoBehaviour
 
         else
         {
-
-
             OperStatus CurrentStatus = Oper_InfoUpdater.instance.operStatus;
             Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
             Oper_InfoUpdater.instance.UpdateUI();
@@ -103,6 +101,8 @@ public class MouseAction : MonoBehaviour
 
     public void OnBeginDrag()
     {
+        if (operStat.operInfo.CardCost > CardCostManager.instance.Cost)
+            return;
         Debug.Log("드래그시작");
         CharMenuFrame.instance.mouseAction = this;
         PlaceOperFrame.instance.UIOff();
@@ -207,14 +207,16 @@ public class MouseAction : MonoBehaviour
     public void IconPosUp()
     {
         //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 200f);
-        Debug.Log(IconRect.transform.position);
-        IconRect.transform.position = new Vector3(IconRect.transform.position.x, 107.5f, IconRect.transform.position.z);
+        Debug.Log(IconRect.transform.localPosition + "!!!");
+        //IconRect.transform.position = new Vector3(IconRect.transform.position.x, 107.5f, IconRect.transform.position.z);
+        IconRect.transform.localPosition = new Vector3(IconRect.transform.localPosition.x, 12.5f, IconRect.transform.localPosition.z);
         ChosenImg.enabled = true;
     }
     public void IconPosDown()
     {
         //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 155f);
-        IconRect.transform.position = new Vector3(IconRect.transform.position.x, 77.5f, IconRect.transform.position.z);
+        //IconRect.transform.position = new Vector3(IconRect.transform.position.x, 77.5f, IconRect.transform.position.z);
+        IconRect.transform.localPosition = new Vector3(IconRect.transform.localPosition.x, -12.5f, IconRect.transform.localPosition.z);
         ChosenImg.enabled = false;
     }
 
@@ -249,8 +251,6 @@ public class MouseAction : MonoBehaviour
             skelAni.skeletonDataAsset = Back;
             skelAni.AnimationState.ClearTracks();
             skelAni.Initialize(true);
-            skelAni.AnimationState.SetAnimation(0, "Start", false);
-            skelAni.AnimationState.AddAnimation(0, "Idle", true, 0);
             atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, 90);
         }
         else if (CharMenuFrame.instance.isDown)

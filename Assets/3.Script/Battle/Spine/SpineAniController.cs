@@ -7,12 +7,15 @@ public class SpineAniController : MonoBehaviour
 {
     private SkeletonAnimation Ani;
     public OperSkeletonData skelData;
+    private SkeletonDataAsset originSkelAsset;
 
     void Start()
     {
         TryGetComponent(out skelData);
         TryGetComponent(out Ani);
-        SetIdle();
+        originSkelAsset = Ani.skeletonDataAsset;
+        Ani.AnimationState.SetAnimation(0, "Start", false);
+        AddIdle();
     }
 
     public void SetIdle()
@@ -56,6 +59,16 @@ public class SpineAniController : MonoBehaviour
             Ani.ClearState();
             Ani.skeletonDataAsset = skelData.FrontAsset;
             Ani.Initialize(true);
+        }
+    }
+    public void RestoreDataAsset()
+    {
+        if(Ani.skeletonDataAsset != originSkelAsset)
+        {
+            Ani.ClearState();
+            Ani.skeletonDataAsset = originSkelAsset;
+            Ani.Initialize(true);
+            //Ani.AnimationState.SetAnimation(0, "Idle", true);
         }
     }
     //----------------------------Ω∫ƒÃ∑π≈Ê µ•¿Ã≈Õ-------------------------------

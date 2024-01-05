@@ -12,6 +12,9 @@ public class AtkManager : MonoBehaviour
     public OperStatus operStatus;
     public GameObject effect;
 
+    private Vector3 originScale;
+    private bool isChange = false;
+
     private Vector3 PlusScale = new Vector3(0.27f, 0.27f, 0.27f);
     private Vector3 MinusScale = new Vector3(-0.27f, 0.27f, 0.27f);
 
@@ -26,6 +29,8 @@ public class AtkManager : MonoBehaviour
         AttackableEnemy = skelAni.GetComponentInChildren<AttackableEnemyList>();
         BlockEnemy = skelAni.GetComponentInChildren<BlockEnemyList>();
         effect = skelAni.transform.Find("Effect").gameObject;
+
+        originScale = skelAni.gameObject.transform.localScale;
     }
     private void FixedUpdate()
     {
@@ -35,6 +40,9 @@ public class AtkManager : MonoBehaviour
     }
     private void DecideState()
     {
+        if (skelAni.AnimationName == "Start" || skelAni.AnimationName == "Die")
+            return;
+
         if (AttackableEnemy.attackableEnemy.Count == 0 && BlockEnemy.blockEnemy.Count == 0)
         {
             Target = null;
@@ -43,12 +51,9 @@ public class AtkManager : MonoBehaviour
                 skelAni.ClearState();
                 spineAniController.EndAttack();
             }
-            //else if (skelAni.AnimationName != "Idle")
-            //{
-            //    skelAni.ClearState();
-            //    //spineAniController.SetIdle(); 
-            //    spineAniController.AddIdle();
-            //}
+            RestoreTransform(skelAni.gameObject);
+            spineAniController.RestoreDataAsset();
+            spineAniController.SetIdle();
         }
         else if (BlockEnemy.blockEnemy.Count > 0)
         {
@@ -107,21 +112,53 @@ public class AtkManager : MonoBehaviour
 
     public IEnumerator ScaleMinus(GameObject gameObject)
     {
+        if (isChange)
+            yield break;
+
+        isChange = true;
         while (Vector3.Distance(gameObject.transform.localScale, MinusScale) > 0.01f)
         {
             gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, MinusScale, 10f * Time.deltaTime);
             yield return null;
         }
         gameObject.transform.localScale = MinusScale;
+        isChange = false;
     }
     public IEnumerator ScalePlus(GameObject gameObject)
     {
+        if (isChange)
+            yield break;
+        isChange = true;
         while (Vector3.Distance(gameObject.transform.localScale, PlusScale) > 0.01f)
         {
             gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, PlusScale, 10f * Time.deltaTime);
             yield return null;
         }
         gameObject.transform.localScale = PlusScale;
+        isChange = false;
+    }
+    public void RestoreTransform(GameObject Operator)
+    {
+        if (Operator.transform.localScale == originScale && isChange)
+            return;
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(RestoreTransform_co(Operator));
+        }
+    }
+    public IEnumerator RestoreTransform_co(GameObject Operator)
+    {
+        isChange = true;
+        while (Vector3.Distance(Operator.transform.localScale, originScale) > 0.01f)
+        {
+            Debug.Log("isChange");
+            Operator.transform.localScale = Vector3.Lerp(Operator.transform.localScale, originScale, 10f * Time.deltaTime);
+            yield return null;
+        }
+        Operator.transform.localScale = originScale;
+        isChange = false;
+        yield break;
     }
 
 }

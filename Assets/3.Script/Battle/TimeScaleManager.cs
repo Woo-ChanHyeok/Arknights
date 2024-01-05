@@ -5,7 +5,8 @@ using UnityEngine;
 public class TimeScaleManager : MonoBehaviour
 {
     public static TimeScaleManager instance = null;
-
+    public float currentTimeScale= 1f;
+    public bool isPause = false;
     private void Awake()
     {
         if(instance == null)
@@ -22,11 +23,11 @@ public class TimeScaleManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            TimeScale1();
+            TimeScale1x();
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            TimeScale2();
+            TimeScale2x();
         }
         else if (Input.GetKey(KeyCode.E))
         {
@@ -36,23 +37,44 @@ public class TimeScaleManager : MonoBehaviour
         {
             TimeScaleZero();
         }
+
+        //if(currentTimeScale != Time.timeScale)
+        //{
+        //    Time.timeScale = currentTimeScale;
+        //}
     }
 
 
-    public void TimeScale1()
+    public void TimeScale1x()
     {
-        Time.timeScale = 1;
+        currentTimeScale = 1f;
+        if (!isPause)
+        {
+            Time.timeScale = currentTimeScale;
+        }
     }
-    public void TimeScale2()
+    public void TimeScale2x()
     {
-        Time.timeScale = 1.8f;
+        currentTimeScale = 1.8f;
+        if (!isPause)
+        {
+            Time.timeScale = currentTimeScale;
+        }
     }
     public void TimeScaleDot1()
     {
         Time.timeScale = 0.1f;
     }
+    public void TimeScaleSet()
+    {
+        Time.timeScale = currentTimeScale;
+    }
     public void TimeScaleZero()
     {
         Time.timeScale = 0f;
+    }
+    public void TimeScaleCurrent()
+    {
+        Time.timeScale = currentTimeScale;
     }
 }

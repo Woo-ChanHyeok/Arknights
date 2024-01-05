@@ -7,6 +7,8 @@ public class AmiyaProjectile : MonoBehaviour
     private AmiyaAtkManager atkManager;
     private OperStatus operstatus;
     private int damage = 0;
+
+    private GameObject dontDieEnemy;
     void Start()
     {
         operstatus = transform.parent.parent.GetComponentInChildren<OperStatus>();
@@ -18,11 +20,20 @@ public class AmiyaProjectile : MonoBehaviour
     private void Update()
     {
         damage = (int)(operstatus.operInfo.AtkPower * 0.5f);
-        if(atkManager.Target == null)
+        if (atkManager.Target != null)
+        {
+            dontDieEnemy = atkManager.Target.gameObject;
+        }
+        else if(dontDieEnemy != null)
+        {
+            transform.Translate((dontDieEnemy.transform.position - transform.position) * atkManager.initialSpeed * Time.deltaTime);
+        }
+        else if(atkManager.Target == null)
         {
             Destroy(gameObject);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && other.gameObject == atkManager.Target)

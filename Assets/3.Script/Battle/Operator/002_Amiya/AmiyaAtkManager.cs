@@ -100,7 +100,9 @@ public class AmiyaAtkManager : AtkManager
             Vector3 directionToTarget = (Target.transform.position - projectile.transform.position).normalized;
             projectile.transform.Translate(directionToTarget * acceleration * Time.deltaTime);
             yield return null;
+
         }
+
     }
 
     private void SpineEventHandler(Spine.TrackEntry trackEntry, Spine.Event e)
