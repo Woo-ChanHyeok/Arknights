@@ -9,12 +9,16 @@ public class EnemyController : MonoBehaviour
     public bool isBlocked = false;
     private float elapsedTime = 0f;
 
+    private bool isActive = true;
+
     public OperStatus operStatus;
     public BlockEnemyList blockEnemy;
     private EnemyStatus enemyStatus;
     [SerializeField] private SkeletonAnimation EnemyAni;
     [SerializeField] private GameObject endBox;
     private NavMeshAgent navMesh;
+    private bool isChange = false;
+    private float changeTime = 0.1f;
     private void Start()
     {
         endBox = GameObject.FindGameObjectWithTag("endBox");
@@ -30,9 +34,30 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isActive)
+            return;
+
+        if (Vector3.Distance(endBox.transform.position, transform.position)  < 0.5f)
+        {
+            isActive = false;
+            Debug.Log("체력 깎아버리기");
+            Map_Information.instance.deathEnemy++;
+            Map_Information.instance.defenseHP--;
+            Map_Information.instance.UpdateInfo();
+            //Destroy(gameObject);
+            FadeOut();
+            return;
+        }
+
         if (enemyStatus.enemyInfo.CurrentHP <= 0)
         {
+            isActive = false;
             Destroy(gameObject);
+            return;
+        }
+        if (!navMesh.isStopped)
+        {
+            RotateMoveDirection();
         }
         if (navMesh.isStopped && EnemyAni.AnimationName == "Move_Loop")
         {
@@ -81,10 +106,50 @@ public class EnemyController : MonoBehaviour
         Vector3 moveDirection = navMesh.velocity.normalized;
         if (moveDirection != Vector3.zero)
         {
-            Vector3 rightVector = Vector3.Cross(Vector3.up, moveDirection);
-            Vector3 leftVector = -rightVector;
-            //if(rightVector)
+            //Vector3 rightVector = Vector3.Cross(Vector3.up, moveDirection);
+            //float Angle = Vector3.Dot(Vector3.up, rightVector);
+            if (moveDirection.x >= 0)
+            {
+                Debug.Log("RightSide");
+                StartCoroutine(RotateSmooth(true));
+            }
+            else
+            {
+                Debug.Log("LeftSide");
+                StartCoroutine(RotateSmooth(false));
+            }
         }
+    }
+    private IEnumerator RotateSmooth(bool direction)
+    {
+        if (isChange)
+            yield break;
+
+        float elapsedTime = 0f;
+        if (direction)
+        {
+            while (elapsedTime < changeTime)
+            {
+                isChange = true;
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, elapsedTime / changeTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            transform.localScale = Vector3.one;
+        }
+        else
+        {
+            while (elapsedTime < changeTime)
+            {
+                isChange = true;
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(-1, 1, 1), elapsedTime / changeTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        isChange = false;
+        yield break;
     }
 
     private void SpineEventHandler(Spine.TrackEntry trackEntry, Spine.Event e)
@@ -116,6 +181,8 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isActive)
+            return;
         if (other.CompareTag("Operator"))
         {
             operStatus = other.GetComponentInParent<OperStatus>();
@@ -124,6 +191,8 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (!isActive)
+            return;
         if (operStatus != null)
             return;
         else if (other.CompareTag("Operator"))
@@ -134,11 +203,50 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (!isActive)
+            return;
         if (other.CompareTag("Operator"))
         {
             operStatus = null;
             blockEnemy = null;
         }
+    }
+
+
+    private void FadeOut()
+    {
+        Renderer renderer = EnemyAni.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            Material copyMaterial = new Material(renderer.material); //복제
+            renderer.material = copyMaterial;
+            StartCoroutine(FadeOut_Co(copyMaterial));
+        }
+        else
+        {
+            Debug.Log("Renderer 찾기 실패");
+        }
+    }
+    private IEnumerator FadeOut_Co(Material copyMaterial)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < 0.1f) //SetBlack
+        {
+            copyMaterial.color = Color.Lerp(copyMaterial.color, Color.black, elapsedTime / 0.1f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        elapsedTime = 0f;
+        while(elapsedTime < 0.1f) //FadeOut
+        {
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / 0.1f);
+            copyMaterial.color = new Color(copyMaterial.color.r, copyMaterial.color.g, copyMaterial.color.b, alpha);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield break;
     }
 
     //-----------------------------Animation-----------------------------

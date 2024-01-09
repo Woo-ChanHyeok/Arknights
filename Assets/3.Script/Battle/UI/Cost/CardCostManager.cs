@@ -20,6 +20,10 @@ public class CardCostManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        Cost = Map_Information.instance.mapStatus.mapInfo.FirstCost;
+    }
 
     private void FixedUpdate()
     {

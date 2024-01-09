@@ -13,6 +13,8 @@ TagManager:
   - Enemy
   - endBox
   - Effect
+  - totalEnemy_Text
+  - defenseHP_Text
   layers:
   - Default
   - TransparentFX

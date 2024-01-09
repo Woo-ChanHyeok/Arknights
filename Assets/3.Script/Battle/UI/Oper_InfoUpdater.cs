@@ -43,12 +43,16 @@ public class Oper_InfoUpdater : MonoBehaviour
             return;
         }
     }
+
+    private void Start()
+    {
+        Slider_HP.onValueChanged.AddListener(delegate { UpdateCurrentHP(); });
+    }
+
     private void Update()
     {
-        if (Slider_HP.IsActive())
-        {
+        if (Slider_HP.enabled && operInfo != null && Slider_HP.value != operInfo.CurrentHP)
             Slider_HP.value = operInfo.CurrentHP;
-        }
     }
 
     public void GetOperStatus(OperStatus operStatus)
@@ -68,7 +72,7 @@ public class Oper_InfoUpdater : MonoBehaviour
         MagicRes.text = operInfo.MagicRes.ToString();
         Block.text = operInfo.Block.ToString();
         Slider_HP.maxValue = operInfo.MaxHP;
-        //Slider_HP.value = operInfo.CurrentHP;
+        Slider_HP.value = operInfo.CurrentHP;
         CurrentHP.text = $"{operInfo.CurrentHP}/{operInfo.MaxHP}";
         //Skil_Icon = operStatus.SkilIcon;
         Skil_Name.text = operInfo.Skil_Name;
@@ -112,4 +116,8 @@ public class Oper_InfoUpdater : MonoBehaviour
 
     }
 
+    public void UpdateCurrentHP()
+    {
+        CurrentHP.text = $"{operInfo.CurrentHP}/{operInfo.MaxHP}";
+    }
 }

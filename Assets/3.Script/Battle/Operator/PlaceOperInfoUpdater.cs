@@ -14,7 +14,6 @@ public class PlaceOperInfoUpdater : MonoBehaviour
 
     private bool isSelectOper = false;
     private int layer;
-    private int UIlayer;
     
     [SerializeField] private GameObject operInfo;
 
@@ -30,7 +29,6 @@ public class PlaceOperInfoUpdater : MonoBehaviour
         }
         //TryGetComponent(out operStatus);
         layer = 1 << LayerMask.NameToLayer("PlaceRayTarget");
-        UIlayer = 1 << LayerMask.NameToLayer("UI");
         cameraController = Camera.main.GetComponent<CameraController>();
     }
     private void Update()
@@ -100,4 +98,5 @@ public class PlaceOperInfoUpdater : MonoBehaviour
         Destroy(operStatus.transform.parent.gameObject);
         PlaceOperFrame.instance.UIOff();
     }
+
 }
