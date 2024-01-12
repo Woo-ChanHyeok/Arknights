@@ -13,7 +13,7 @@ public class BattleMenuBtn : MonoBehaviour
     private void Start()
     {
         TryGetComponent(out button);
-        volume = Camera.main.GetComponent<PostProcessVolume>();
+        volume = GameObject.FindWithTag("MainCamera").GetComponent<PostProcessVolume>();
         alpha = battleMenuCanvas.GetComponent<CanvasGroup>();
         button.onClick.AddListener(ToggleBtn);
     }

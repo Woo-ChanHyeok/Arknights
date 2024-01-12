@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5743418283862747916}
   - component: {fileID: 5687454645202247032}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5740850188351324661}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: static_offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 5740735950498248743}
   - component: {fileID: 5582850914995991026}
   - component: {fileID: 5582379728410706077}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2793,7 +2793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5743376684229404693}
   - component: {fileID: 5687573408821792473}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: trail_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2921,7 +2921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5740777239481737769}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: amiya_attack_01_trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2954,7 +2954,7 @@ GameObject:
   - component: {fileID: 5740469599648589372}
   - component: {fileID: 5582680318414629141}
   - component: {fileID: 5584271246812758193}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: suduxian
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,14 +15,18 @@ TagManager:
   - Effect
   - totalEnemy_Text
   - defenseHP_Text
+  - startBox
+  - BlockRay
+  - char_Limit_Text
+  - SubCamera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
-  - 
+  - No_PostProcessing
   - Block
   - PlaceRayTarget
   - Oper
@@ -57,4 +61,7 @@ TagManager:
     locked: 0
   - name: Map
     uniqueID: 2034235617
+    locked: 0
+  - name: UI
+    uniqueID: 3403545241
     locked: 0

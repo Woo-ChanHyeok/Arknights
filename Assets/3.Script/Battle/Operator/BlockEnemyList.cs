@@ -9,7 +9,6 @@ public class BlockEnemyList : MonoBehaviour
     private void Start()
     {
         operStatus = GetComponentInParent<OperStatus>();
-        //blockEnemy.Capacity = operStatus.operInfo.Block;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -18,14 +17,28 @@ public class BlockEnemyList : MonoBehaviour
             blockEnemy.Add(other.gameObject);
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (blockEnemy.Contains(other.gameObject))
+            if (blockEnemy.Contains(other.gameObject) && other.GetComponent<EnemyStatus>().enemyInfo.CurrentHP <= 0)
             {
                 blockEnemy.Remove(other.gameObject);
             }
+            else if (blockEnemy.Count < operStatus.operInfo.Block)
+            {
+                blockEnemy.Add(other.gameObject);
+            }
         }
     }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Enemy"))
+    //    {
+    //        if (blockEnemy.Contains(other.gameObject))
+    //        {
+    //            blockEnemy.Remove(other.gameObject);
+    //        }
+    //    }
+    //}
 }

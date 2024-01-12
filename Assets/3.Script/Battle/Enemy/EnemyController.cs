@@ -35,7 +35,9 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isActive)
+        {
             return;
+        }
 
         if (Vector3.Distance(endBox.transform.position, transform.position)  < 0.5f)
         {
@@ -44,15 +46,18 @@ public class EnemyController : MonoBehaviour
             Map_Information.instance.deathEnemy++;
             Map_Information.instance.defenseHP--;
             Map_Information.instance.UpdateInfo();
-            //Destroy(gameObject);
-            FadeOut();
+            StartCoroutine(FadeOut_Co());
             return;
         }
 
         if (enemyStatus.enemyInfo.CurrentHP <= 0)
         {
             isActive = false;
-            Destroy(gameObject);
+            Map_Information.instance.deathEnemy++;
+            Map_Information.instance.UpdateInfo();
+            navMesh.isStopped = true;
+            Die_Ani();
+            StartCoroutine(FadeOut_Co());
             return;
         }
         if (!navMesh.isStopped)
@@ -87,7 +92,7 @@ public class EnemyController : MonoBehaviour
     {
         if (elapsedTime > enemyStatus.enemyInfo.AtkSpeed)
         {
-            if (blockEnemy.blockEnemy.Contains(gameObject) && EnemyAni.AnimationName == "Attack")
+            if (EnemyAni.AnimationName == "Attack")
             {
                 StayAttack_Ani();
                 elapsedTime = 0f;
@@ -179,26 +184,25 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!isActive)
-            return;
-        if (other.CompareTag("Operator"))
-        {
-            operStatus = other.GetComponentInParent<OperStatus>();
-            blockEnemy = other.GetComponent<BlockEnemyList>();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (!isActive)
+    //        return;
+    //    if (other.CompareTag("Operator"))
+    //    {
+    //        operStatus = other.GetComponentInParent<OperStatus>();
+    //        blockEnemy = other.GetComponent<BlockEnemyList>();
+    //    }
+    //}
     private void OnTriggerStay(Collider other)
     {
         if (!isActive)
             return;
-        if (operStatus != null)
-            return;
-        else if (other.CompareTag("Operator"))
+        //if (operStatus != null)
+        //    return;
+        else if (other.CompareTag("Operator") && other.GetComponent<BlockEnemyList>().blockEnemy.Contains(gameObject))
         {
             operStatus = other.GetComponentInParent<OperStatus>();
-            blockEnemy = other.GetComponent<BlockEnemyList>();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -212,40 +216,28 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
-    private void FadeOut()
-    {
-        Renderer renderer = EnemyAni.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            Material copyMaterial = new Material(renderer.material); //복제
-            renderer.material = copyMaterial;
-            StartCoroutine(FadeOut_Co(copyMaterial));
-        }
-        else
-        {
-            Debug.Log("Renderer 찾기 실패");
-        }
-    }
-    private IEnumerator FadeOut_Co(Material copyMaterial)
+    private IEnumerator FadeOut_Co()
     {
         float elapsedTime = 0f;
         while (elapsedTime < 0.1f) //SetBlack
         {
-            copyMaterial.color = Color.Lerp(copyMaterial.color, Color.black, elapsedTime / 0.1f);
+            EnemyAni.skeleton.SetColor(Color.Lerp(Color.white, Color.black, elapsedTime / 0.1f));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        EnemyAni.skeleton.SetColor(Color.black);
         elapsedTime = 0f;
         while(elapsedTime < 0.1f) //FadeOut
         {
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / 0.1f);
-            copyMaterial.color = new Color(copyMaterial.color.r, copyMaterial.color.g, copyMaterial.color.b, alpha);
+            EnemyAni.skeleton.SetColor(new Color( 0, 0, 0, alpha));
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        EnemyAni.skeleton.SetColor(new Color(0,0,0,0));
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
         yield break;
     }
 

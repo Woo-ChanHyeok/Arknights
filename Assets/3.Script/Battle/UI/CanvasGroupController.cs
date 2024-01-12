@@ -18,7 +18,7 @@ public class CanvasGroupController : MonoBehaviour
     }
     public void CheckCost()
     {
-        if (operStatus.operInfo.CardCost <= CardCostManager.instance.Cost)
+        if (operStatus.operInfo.CardCost <= CardCostManager.instance.Cost && Map_Information.instance.char_Limit > 0)
         {
             SetColorOrigin();
         }

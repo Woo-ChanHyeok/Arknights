@@ -8,9 +8,9 @@ public class MatOffsetChanger : MonoBehaviour
 
     float y = 3f;
     float Offset_y;
-    private void FixedUpdate()
+    private void Update()
     {
-        Offset_y -= (Time.deltaTime * y) / 10f;
+        Offset_y -= (Time.fixedDeltaTime * y) / 10f;
         AttackRange.mainTextureOffset = new Vector2(0, Offset_y);
     }
 }

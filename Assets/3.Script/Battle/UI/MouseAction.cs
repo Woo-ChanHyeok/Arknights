@@ -6,9 +6,10 @@ using Spine.Unity;
 public class MouseAction : MonoBehaviour
 {
     [SerializeField] private GameObject prefab; //마우스 따라다닐 이미지
-    [SerializeField] private RectTransform prefabParent; // 프리팹 부모용
+    [SerializeField] private Transform followImgParent;
 
     private OperStatus operStat;
+    private Respawn_UI respawn_UI;
 
     [SerializeField] private GameObject InstantiatePrefabs;
     [SerializeField] private Transform InstantiateParent;
@@ -39,9 +40,10 @@ public class MouseAction : MonoBehaviour
     {
         TryGetComponent(out operStat);
         TryGetComponent(out IconRect);
+        TryGetComponent(out respawn_UI);
         MapLayer = 1 << LayerMask.NameToLayer("Map");
         plane = new Plane(Vector3.up, new Vector3(0, 0.23f, 0));
-
+        followImgParent = GameObject.Find("FollowImgParent").transform;
 
 
         DecideIcon_img();
@@ -76,6 +78,7 @@ public class MouseAction : MonoBehaviour
 
         else
         {
+            Debug.Log("냐아악");
             OperStatus CurrentStatus = Oper_InfoUpdater.instance.operStatus;
             Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
             Oper_InfoUpdater.instance.UpdateUI();
@@ -96,31 +99,39 @@ public class MouseAction : MonoBehaviour
             }
             Debug.Log("뗐니?");
         }
+        isDrag = false;
         PlaceOperFrame.instance.Frame.SetActive(false);
     }
 
     public void OnBeginDrag()
     {
-        if (operStat.operInfo.CardCost > CardCostManager.instance.Cost)
-            return;
-        Debug.Log("드래그시작");
-        CharMenuFrame.instance.mouseAction = this;
-        PlaceOperFrame.instance.UIOff();
-        GameObject oper = Instantiate(prefab);
-        oper.transform.parent = prefabParent;
-        oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-        Oper = oper;
-
         isDrag = true;
-        Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
-        Oper_InfoUpdater.instance.UpdateUI();
+        if (operStat.operInfo.CardCost > CardCostManager.instance.Cost || Map_Information.instance.char_Limit <= 0)
+            return;
+        else
+        {
+            if (respawn_UI.RespawnTime <= 0)
+            {
+                Debug.Log("드래그시작");
+                CharMenuFrame.instance.mouseAction = this;
+                PlaceOperFrame.instance.UIOff();
+                GameObject oper = Instantiate(prefab, followImgParent);
+                //oper.transform.parent = prefabParent;
+                oper.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+                Oper = oper;
 
-        Oper_InfoUpdater.instance.OperImgAlphaZero();
-        Oper_InfoUpdater.instance.OperImgTransform();
+                isDrag = true;
+                Oper_InfoUpdater.instance.GetOperStatus(gameObject.GetComponent<OperStatus>());
+                Oper_InfoUpdater.instance.UpdateUI();
+
+                Oper_InfoUpdater.instance.OperImgAlphaZero();
+                Oper_InfoUpdater.instance.OperImgTransform();
 
 
-        CameraController.instance.TiltCamera();
-        OperInfo.SetActive(true);
+                CameraController.instance.TiltCamera();
+                OperInfo.SetActive(true);
+            }
+        }
     }
 
     public void OnDrag()
@@ -172,8 +183,6 @@ public class MouseAction : MonoBehaviour
             }
         }
 
-
-
     }
 
     public void OnEndDrag()
@@ -198,16 +207,12 @@ public class MouseAction : MonoBehaviour
             MatColorSetter.instance.SetFloorZero();
             MatColorSetter.instance.SetUpperFloorZero();
         }
-        else
-        {
-
-        }
+        isDrag = false;
     }
 
     public void IconPosUp()
     {
         //IconRect.sizeDelta = new Vector2(IconRect.sizeDelta.x, 200f);
-        Debug.Log(IconRect.transform.localPosition + "!!!");
         //IconRect.transform.position = new Vector3(IconRect.transform.position.x, 107.5f, IconRect.transform.position.z);
         IconRect.transform.localPosition = new Vector3(IconRect.transform.localPosition.x, 12.5f, IconRect.transform.localPosition.z);
         ChosenImg.enabled = true;
@@ -226,7 +231,6 @@ public class MouseAction : MonoBehaviour
         Operator.transform.localPosition += new Vector3(0, 0.5f, 0);
         
         GameObject frame = Operator.transform.GetChild(0).gameObject;
-        //GameObject realOper = GetComponentInChildren<GameObject>();
         SkeletonAnimation skelAni = Operator.GetComponentInChildren<SkeletonAnimation>();
         OperSkeletonData skelData = Operator.GetComponentInChildren<OperSkeletonData>();
         AtkRange atkRange = Operator.GetComponentInChildren<AtkRange>();
@@ -258,8 +262,14 @@ public class MouseAction : MonoBehaviour
             frame.transform.localRotation = Quaternion.Euler(0, 0, -90f);
             atkRange.gameObject.transform.localRotation = Quaternion.Euler(53.5f, 0, -90);
         }
+        Operator.GetComponent<EscapeOperator>().Oper_UI = gameObject;
+        gameObject.SetActive(false);
+        isDrag = false;
+        isHoldOper = false;
+        CardCostManager.instance.Cost -= operStat.operInfo.CardCost;
+        Map_Information.instance.char_Limit--;
+        Map_Information.instance.UpdateInfo();
         Destroy(Oper);
-
     }
 
     private void DecideIcon_img()

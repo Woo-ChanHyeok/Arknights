@@ -5,6 +5,14 @@ using UnityEngine;
 public class AtkRange : MonoBehaviour
 {
     private bool isOn = false;
+    private BoxCollider[] myColliders;
+    private int layer;
+    private void Start()
+    {
+        layer = LayerMask.NameToLayer("AtkRange");
+        myColliders = GetComponents<BoxCollider>();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("AtkRange") && isOn)
@@ -42,4 +50,5 @@ public class AtkRange : MonoBehaviour
     {
         gameObject.transform.localRotation = Quaternion.Euler(36.5f, 0, -90);
     }
+
 }

@@ -24,6 +24,8 @@ public class AmiyaAtkManager : AtkManager
     {
         if (operStatus.operInfo.AtkDelay > elapsedTime && skelAni.AnimationName.Equals("Attack"))
             return;
+        if (Target == null)
+            return;
 
         if (directionCalculator(Enemy))
         {

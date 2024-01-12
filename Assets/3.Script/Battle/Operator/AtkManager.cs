@@ -49,11 +49,14 @@ public class AtkManager : MonoBehaviour
             if (skelAni.AnimationName == "Attack")
             {
                 skelAni.ClearState();
+                RestoreTransform(skelAni.gameObject);
+                spineAniController.RestoreDataAsset();
                 spineAniController.EndAttack();
             }
-            RestoreTransform(skelAni.gameObject);
-            spineAniController.RestoreDataAsset();
-            spineAniController.SetIdle();
+
+            //RestoreTransform(skelAni.gameObject);
+            //spineAniController.RestoreDataAsset();
+            //spineAniController.SetIdle();
         }
         else if (BlockEnemy.blockEnemy.Count > 0)
         {

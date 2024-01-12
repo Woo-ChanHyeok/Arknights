@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7626123654511627092}
   - component: {fileID: 9129701908492001737}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: amiya_attack_01_start_back_yuan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 2316147595517934922}
   - component: {fileID: 5029452765202642098}
   - component: {fileID: 647882788818420558}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: xingdian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3020,7 +3020,7 @@ GameObject:
   - component: {fileID: 7322332752136064985}
   - component: {fileID: 3083352339799851220}
   - component: {fileID: 8619866568977173076}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: andi_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5670,7 +5670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285006209209219052}
   - component: {fileID: 3952207798324157451}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: amiya_attack_01_start_yuan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5713,7 +5713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3975033806137518405}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: static_offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5746,7 +5746,7 @@ GameObject:
   - component: {fileID: 4272412687626090080}
   - component: {fileID: 1753058228749637468}
   - component: {fileID: 3266104264814611322}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: andi_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8397,7 +8397,7 @@ GameObject:
   - component: {fileID: 6977577760407718577}
   - component: {fileID: 6785671905577484792}
   - component: {fileID: 3234840649614815297}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: rotation_y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11115,7 +11115,7 @@ GameObject:
   - component: {fileID: 7203216254035165940}
   - component: {fileID: 3482266816359702659}
   - component: {fileID: 7951877102635389061}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: xingdian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13878,7 +13878,7 @@ GameObject:
   - component: {fileID: 3029285481598246877}
   - component: {fileID: 6259301233991960150}
   - component: {fileID: 6433638261371466922}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: rotation_y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16602,7 +16602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8770935668825663506}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: static_offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}

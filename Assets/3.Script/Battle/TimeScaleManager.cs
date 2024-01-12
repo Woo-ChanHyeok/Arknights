@@ -31,17 +31,13 @@ public class TimeScaleManager : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            TimeScaleDot1();
+            TimeScaleDot2();
         }
         else if (Input.GetKey(KeyCode.R))
         {
             TimeScaleZero();
         }
 
-        //if(currentTimeScale != Time.timeScale)
-        //{
-        //    Time.timeScale = currentTimeScale;
-        //}
     }
 
 
@@ -61,13 +57,9 @@ public class TimeScaleManager : MonoBehaviour
             Time.timeScale = currentTimeScale;
         }
     }
-    public void TimeScaleDot1()
+    public void TimeScaleDot2()
     {
-        Time.timeScale = 0.1f;
-    }
-    public void TimeScaleSet()
-    {
-        Time.timeScale = currentTimeScale;
+        Time.timeScale = 0.2f;
     }
     public void TimeScaleZero()
     {

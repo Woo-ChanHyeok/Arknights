@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class PauseBtn : MonoBehaviour
 {
+    public static PauseBtn instance = null;
     private Button button;
     [SerializeField] private GameObject PauseCanvas;
     [SerializeField] Sprite[] sprites;
     private Image pauseImage;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            return;
+    }
     private void Start()
     {
         TryGetComponent(out button);

@@ -67,6 +67,10 @@ public class AttackableEnemyList : MonoBehaviour
                 Debug.Log("addlist");
                 attackableEnemy.Add(other.gameObject);
             }
+            //else if (attackableEnemy.Contains(other.gameObject) && other.GetComponent<EnemyStatus>().enemyInfo.CurrentHP <= 0)
+            //{
+            //    attackableEnemy.Remove(other.gameObject);
+            //}
         }
     }
     private void OnTriggerExit(Collider other)

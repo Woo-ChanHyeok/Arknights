@@ -13,6 +13,9 @@ public class Map_Information : MonoBehaviour
     public int deathEnemy;
     [SerializeField] private Text defenseHP_Text;
     public int defenseHP;
+    public bool checkEnd = false;
+    public int char_Limit;
+    [SerializeField] private Text char_Limit_Text;
 
     private void Awake()
     {
@@ -26,15 +29,23 @@ public class Map_Information : MonoBehaviour
         }
         totalEnemy_Text = GameObject.FindGameObjectWithTag("totalEnemy_Text").GetComponent<Text>();
         defenseHP_Text = GameObject.FindGameObjectWithTag("defenseHP_Text").GetComponent<Text>();
-    }
-    private void Start()
-    {
+        char_Limit_Text = GameObject.FindGameObjectWithTag("char_Limit_Text").GetComponent<Text>();
+
         TryGetComponent(out mapStatus);
         totalEnemy = mapStatus.mapInfo.totalEnemy;
         deathEnemy = 0;
         defenseHP = mapStatus.mapInfo.DefenseHP;
-
+        char_Limit = mapStatus.mapInfo.Char_Limit;
+    }
+    private void Start()
+    {
         UpdateInfo();
+    }
+    private void Update()
+    {
+        if (!checkEnd)
+            return;
+        GameEndCheck();
     }
 
 
@@ -42,5 +53,23 @@ public class Map_Information : MonoBehaviour
     {
         totalEnemy_Text.text = $"{deathEnemy}/{totalEnemy}";
         defenseHP_Text.text = defenseHP.ToString();
+        char_Limit_Text.text = char_Limit.ToString();
+    }
+    public void CheckEnd()
+    {
+        checkEnd = true;
+
+    }
+    private void GameEndCheck()
+    {
+        if (checkEnd)
+        {
+            if (deathEnemy == totalEnemy)
+            {
+                Debug.Log("³¡");
+                checkEnd = false;
+                MissionComplete.instance.gameObject.SetActive(true);
+            }
+        }
     }
 }
