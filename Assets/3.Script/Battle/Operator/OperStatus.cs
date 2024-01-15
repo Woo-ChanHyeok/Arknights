@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Star
+{
+    Star1 = 1,
+    Star2,
+    Star3,
+    Star4,
+    Star5,
+    Star6
+}
 public enum PositionType
 {
     Floor,
@@ -35,6 +44,8 @@ public enum AtkType
 [System.Serializable]
 public class OperInfo
 {
+    public OperatorLineUp ItsMe;
+    public Star OperStar;
     public PositionType OperType;
     public OperClass ClassType;
     public EliteType OperElite;
@@ -60,5 +71,12 @@ public class OperStatus : MonoBehaviour
 {
     public OperInfo operInfo;
     public Sprite[] OperImage;
+    public Sprite[] OperCardImage;
     public Sprite SkilIcon;
+    public void CopyStatus(OperStatus other)
+    {
+        operInfo = other.operInfo;
+        OperCardImage = other.OperCardImage;
+        OperImage = other.OperImage;
+    }
 }

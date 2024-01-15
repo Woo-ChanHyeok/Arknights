@@ -30,5 +30,8 @@ public class PlayerInfoManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+        playerInfo.haveOperList.Clear();
+        playerInfo.haveOperList.Add(OperatorLineUp.Amiya_002);
     }
 }
