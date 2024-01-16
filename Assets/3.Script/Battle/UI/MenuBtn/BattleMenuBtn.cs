@@ -9,13 +9,13 @@ public class BattleMenuBtn : MonoBehaviour
     private Button button;
     [SerializeField] private GameObject battleMenuCanvas;
     private CanvasGroup alpha;
-    private PostProcessVolume volume;
+    [SerializeField] private PostProcessVolume volume;
     private void Start()
     {
         TryGetComponent(out button);
-        volume = GameObject.FindWithTag("MainCamera").GetComponent<PostProcessVolume>();
+        //button.onClick.AddListener(ToggleBtn);
         alpha = battleMenuCanvas.GetComponent<CanvasGroup>();
-        button.onClick.AddListener(ToggleBtn);
+        volume = GameObject.FindWithTag("MainCamera").GetComponent<PostProcessVolume>();
     }
 
     public void ToggleBtn()

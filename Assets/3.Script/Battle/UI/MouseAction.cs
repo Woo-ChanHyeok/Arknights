@@ -44,7 +44,7 @@ public class MouseAction : MonoBehaviour
         MapLayer = 1 << LayerMask.NameToLayer("Map");
         plane = new Plane(Vector3.up, new Vector3(0, 0.23f, 0));
         followImgParent = GameObject.Find("FollowImgParent").transform;
-
+        OperInfo = Oper_InfoUpdater.instance.InfoUI;
 
         DecideIcon_img();
     }

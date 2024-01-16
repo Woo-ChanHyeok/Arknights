@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public enum OperatorLineUp
 {
     Amiya_002 = 2,
+    Wyvern_240 = 240
 }
 
 public class OperatorManager : MonoBehaviour

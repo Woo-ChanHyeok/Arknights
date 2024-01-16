@@ -9,7 +9,7 @@ public class Oper_InfoUpdater : MonoBehaviour
 
     private OperInfo operInfo;
     public OperStatus operStatus;
-
+    public GameObject InfoUI;
     [SerializeField] private Image  OperImg;
     [SerializeField] private Image  Class_Img;
     [SerializeField] private Text   OperName;

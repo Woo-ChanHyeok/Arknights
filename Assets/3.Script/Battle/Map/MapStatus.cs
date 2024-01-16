@@ -6,16 +6,17 @@ using UnityEngine;
 public class MapInfo
 {
     public string MapName;
+    public string MapNum;
     public int totalEnemy;
     public int DefenseHP;
     public int Char_Limit;
     public int FirstCost;
+    public int SanityCost;
+    public string Dangerrate;
+    public string Information;
+    public bool isClear;
+    public int ClearRank;
 }
-//8
-//Max life point
-//20
-//Initial cost
-//10
 
 public class MapStatus : MonoBehaviour
 {

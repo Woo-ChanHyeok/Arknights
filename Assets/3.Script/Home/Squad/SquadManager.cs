@@ -20,15 +20,19 @@ public class SquadManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+        btlOperCanvas.SetActive(false);
     }
     public void TakeOperBtn()
     {
         btlOperCanvas.SetActive(true);
+        StartCoroutine(FadeManager.instance.CanvasFadeIn(btlOperCanvas.GetComponent<CanvasGroup>()));
     }
 
     public void BackBtn()
     {
-        btlOperCanvas.SetActive(false);
+        //btlOperCanvas.SetActive(false);
+        StartCoroutine(FadeManager.instance.CanvasFadeOut(btlOperCanvas.GetComponent<CanvasGroup>(), btlOperCanvas));
     }
     public void ConfirmBtn()
     {

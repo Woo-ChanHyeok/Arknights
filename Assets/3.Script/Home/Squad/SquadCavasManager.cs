@@ -16,6 +16,8 @@ public class SquadCavasManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+        gameObject.SetActive(false);
     }
     private void Start()
     {
@@ -52,6 +54,11 @@ public class SquadCavasManager : MonoBehaviour
     }
     public void BackToMainBtn()
     {
-        gameObject.SetActive(false);
+        StartCoroutine(FadeManager.instance.CanvasFadeOut(GetComponent<CanvasGroup>(), gameObject));
+    }
+    public void TurnOnMe()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(FadeManager.instance.CanvasFadeIn(GetComponent<CanvasGroup>()));
     }
 }

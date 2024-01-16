@@ -7,7 +7,6 @@ using UnityEngine.Rendering.PostProcessing;
 public class ResultManager : MonoBehaviour
 {
     public static ResultManager instance = null;
-    private bool isComplete = false;
 
     private bool is3Rank = false;
     private bool isFadeComplete = false;
@@ -20,6 +19,7 @@ public class ResultManager : MonoBehaviour
     [SerializeField] private GameObject[] ranks;
     [SerializeField] private GameObject[] particles;
     [SerializeField] private Sprite[] rankImg;
+    [SerializeField] private GameObject BackToMain;
 
     private float operImgFadeTime = 0f;
     [SerializeField] private Image operImg;
@@ -46,6 +46,7 @@ public class ResultManager : MonoBehaviour
         }
         ResultFrame.SetActive(false);
         RankFrame.SetActive(false);
+        BackToMain.SetActive(false);
     }
 
     private void Update()
@@ -135,7 +136,11 @@ public class ResultManager : MonoBehaviour
         fadeImg.enabled = false;
         fadeTime = 0f;
         isFadeComplete = true;
+        PlayerInfoManager.instance.playerInfo.Sanity -= Map_Information.instance.mapStatus.mapInfo.SanityCost;
+        StageManager.instance.SaveResult(true, is3Rank);
+        StageManager.instance.SyncInformationUI();
         StartCoroutine(Rank(is3Rank));
+        BackToMain.SetActive(true);
         yield break;
     }
 
@@ -168,6 +173,7 @@ public class ResultManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.5f);
             StartCoroutine(rankSize(2));
         }
+        
         yield break;
     }
 

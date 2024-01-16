@@ -27,6 +27,10 @@ public class CardCostManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!FadeManager.isLoad)
+        {
+            return;
+        }
         if (Cost < 99)
         {
             recoveryCost += 50 * Time.deltaTime;

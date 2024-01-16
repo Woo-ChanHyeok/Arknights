@@ -16,9 +16,13 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (FadeManager.isLoad && timeLineStarter.state == PlayState.Paused)
         {
-            StartSign();
+            timeLineStarter.Play();
+        }
+        else if (!FadeManager.isLoad && timeLineStarter.state == PlayState.Playing)
+        {
+            timeLineStarter.Stop();
         }
     }
     public void StartSign()

@@ -36,6 +36,8 @@ public class Map_Information : MonoBehaviour
         deathEnemy = 0;
         defenseHP = mapStatus.mapInfo.DefenseHP;
         char_Limit = mapStatus.mapInfo.Char_Limit;
+
+        mapStatus = StageManager.instance.mapStatus;
     }
     private void Start()
     {

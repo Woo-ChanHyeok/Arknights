@@ -29,8 +29,15 @@ public class SpineAniController : MonoBehaviour
     public void StartAttack()
     {
         //Ani.AnimationName = "Attack_Begin";
-        Ani.AnimationState.SetAnimation(0, "Attack_Begin", false);
-        Ani.AnimationState.AddAnimation(0, "Attack", false, 0f);
+        if (Ani.AnimationState.Data.SkeletonData.FindAnimation("Attack_Begin") != null)
+        {
+            Ani.AnimationState.SetAnimation(0, "Attack_Begin", false);
+            Ani.AnimationState.AddAnimation(0, "Attack", false, 0f);
+        }
+        else
+        {
+            Ani.AnimationState.SetAnimation(0, "Attack", false);
+        }
     }
     public void AttackStay()
     {
@@ -38,9 +45,15 @@ public class SpineAniController : MonoBehaviour
     }
     public void EndAttack()
     {
-        Ani.AnimationState.AddAnimation(0, "Attack_End", false, 0f);
-        //Ani.AnimationState.SetAnimation(0, "Attack_End", false);
-        Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
+        if (Ani.AnimationState.Data.SkeletonData.FindAnimation("Attack_End") != null)
+        {
+            Ani.AnimationState.AddAnimation(0, "Attack_End", false, 0f);
+        }
+        else
+        {
+            Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
+        }
+
     }
 
     //----------------------------Ω∫ƒÃ∑π≈Ê µ•¿Ã≈Õ-------------------------------

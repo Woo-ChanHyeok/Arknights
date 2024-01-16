@@ -33,5 +33,6 @@ public class PlayerInfoManager : MonoBehaviour
 
         playerInfo.haveOperList.Clear();
         playerInfo.haveOperList.Add(OperatorLineUp.Amiya_002);
+        playerInfo.haveOperList.Add(OperatorLineUp.Wyvern_240);
     }
 }
