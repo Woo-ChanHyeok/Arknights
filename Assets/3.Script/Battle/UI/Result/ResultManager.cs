@@ -102,6 +102,7 @@ public class ResultManager : MonoBehaviour
     }
     private IEnumerator FadeOut()
     {
+        BGMManager.instance.StopAllBGM();
         Time.timeScale = 0f;
         fadeImg.color = Color.clear;
         while (fadeTime < 0.3f)
@@ -123,6 +124,9 @@ public class ResultManager : MonoBehaviour
     private IEnumerator FadeIn()
     {
         yield return new WaitForSecondsRealtime(2f);
+
+        BGMManager.instance.StopAllBGM();
+        BGMManager.instance.PlayBGMintro(2);
         fadeImg.color = Color.black;
         StartCoroutine(FadeInOperImg());
         while (fadeTime < 0.3f)

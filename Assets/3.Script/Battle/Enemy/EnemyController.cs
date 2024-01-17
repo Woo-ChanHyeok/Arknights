@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public bool isBlocked = false;
     private float elapsedTime = 0f;
 
-    private bool isActive = true;
+    public bool isActive = true;
 
     public OperStatus operStatus;
     public BlockEnemyList blockEnemy;

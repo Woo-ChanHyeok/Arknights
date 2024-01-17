@@ -11,17 +11,15 @@ public class WyvernAtkManager : AtkManager
     {
         skelAni.AnimationState.Event += SpineEventHandler;
     }
-    private void Update()
-    {
-        damage = (int)(operStatus.operInfo.AtkPower);
-    }
+
     public override void AttackEnemy(GameObject Enemy)
     {
-        if (operStatus.operInfo.AtkDelay > elapsedTime && skelAni.AnimationName.Equals("Attack"))
+        if (operStatus.operInfo.AtkDelay > elapsedTime && skelAni.AnimationName == "Attack")
             return;
         if (Target == null)
             return;
 
+        damage = (operStatus.operInfo.AtkPower);
         if (directionCalculator(Enemy))
         {
             //¿À¸¥
@@ -63,7 +61,10 @@ public class WyvernAtkManager : AtkManager
             {
                 skelAni.AnimationState.Event += SpineEventHandler;
             }
-            spineAniController.AttackStay();
+            if (Target != null)
+            {
+                spineAniController.AttackStay();
+            }
         }
 
 

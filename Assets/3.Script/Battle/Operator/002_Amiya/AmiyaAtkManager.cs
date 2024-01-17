@@ -22,7 +22,7 @@ public class AmiyaAtkManager : AtkManager
     }
     public override void AttackEnemy(GameObject Enemy)
     {
-        if (operStatus.operInfo.AtkDelay > elapsedTime && skelAni.AnimationName.Equals("Attack"))
+        if (operStatus.operInfo.AtkDelay > elapsedTime)
             return;
         if (Target == null)
             return;

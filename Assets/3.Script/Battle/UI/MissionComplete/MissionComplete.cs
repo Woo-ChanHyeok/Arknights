@@ -43,6 +43,8 @@ public class MissionComplete : MonoBehaviour
     {
         if (!isAwake)
             return;
+        BGMManager.instance.StopAllBGM();
+        SFXManager.instance.PlayVictory();
         blockRayCast.SetActive(true);
         TimeScaleManager.instance.TimeScale1x();
         TimeScaleBtn.instance.scaleBtn1x();
@@ -94,6 +96,7 @@ public class MissionComplete : MonoBehaviour
         gameObject.SetActive(false);
         TimeScaleManager.instance.TimeScaleZero();
         ResultManager.instance.Result();
+        blockRayCast.SetActive(false);
         yield break;
     }
 }

@@ -45,9 +45,15 @@ public class SpineAniController : MonoBehaviour
     }
     public void EndAttack()
     {
+        if(Ani.AnimationName == "Idle" || Ani.AnimationName == "Attack_End")
+        {
+            return;
+        }
+        //Ani.AnimationState.ClearTracks();
         if (Ani.AnimationState.Data.SkeletonData.FindAnimation("Attack_End") != null)
         {
             Ani.AnimationState.AddAnimation(0, "Attack_End", false, 0f);
+            Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
         }
         else
         {
@@ -82,7 +88,7 @@ public class SpineAniController : MonoBehaviour
             Ani.ClearState();
             Ani.skeletonDataAsset = originSkelAsset;
             Ani.Initialize(true);
-            //Ani.AnimationState.SetAnimation(0, "Idle", true);
+            //Ani.AnimationState.SetAnimation(0, "Default", false);
         }
     }
     //----------------------------Ω∫ƒÃ∑π≈Ê µ•¿Ã≈Õ-------------------------------

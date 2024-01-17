@@ -29,6 +29,7 @@ public class FadeManager : MonoBehaviour
             Destroy(gameObject);
 
         UIOff();
+        FadeIn();
     }
 
     public void UILoading()
@@ -38,6 +39,9 @@ public class FadeManager : MonoBehaviour
         CornerImg.gameObject.SetActive(true);
         TextSpace.SetActive(true);
         LoadingText.SetActive(true);
+        LoadingImg.color = Color.white;
+        LoadedImg.color = Color.white;
+        CornerImg.color = Color.white;
         TextSpaceCG.alpha = 1f;
         MapNum_Text.text = StageManager.instance.mapStatus.mapInfo.MapNum;
         MapName_Text.text = StageManager.instance.mapStatus.mapInfo.MapName;

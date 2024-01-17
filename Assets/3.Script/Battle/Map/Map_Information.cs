@@ -70,8 +70,15 @@ public class Map_Information : MonoBehaviour
             {
                 Debug.Log("³¡");
                 checkEnd = false;
-                MissionComplete.instance.gameObject.SetActive(true);
+                StartCoroutine(WaitEnd());
+                //MissionComplete.instance.gameObject.SetActive(true);               
             }
         }
+    }
+    private IEnumerator WaitEnd()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        MissionComplete.instance.gameObject.SetActive(true);
+        yield break;
     }
 }

@@ -38,6 +38,10 @@ public class SceneLoadManager : MonoBehaviour
     {
         FadeManager.instance.FadeOut();
         yield return new WaitForSecondsRealtime(1f);
+        BGMManager.instance.StopAllBGM();
+        BGMManager.instance.isIntro = false;
+        BGMManager.currentSceneName = "Home";
+        BGMManager.instance.index = 0;
         AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(scene);
         while (!asyncLoad.isDone)
         {
@@ -48,6 +52,8 @@ public class SceneLoadManager : MonoBehaviour
             OnObjOutBtl[i].SetActive(true);
         }
         yield return new WaitForSecondsRealtime(3f);
+        BGMManager.instance.PlayBGMintro(0);
+
         FadeManager.instance.FadeIn();
     }
 
@@ -58,9 +64,14 @@ public class SceneLoadManager : MonoBehaviour
     }
     private IEnumerator SceneLoad_co(string SceneName)
     {
+        Time.timeScale = 1f;
         FadeManager.isLoad = false;
         FadeManager.instance.FadeOut();
         yield return new WaitForSecondsRealtime(1f);
+        BGMManager.instance.StopAllBGM();
+        BGMManager.instance.isIntro = false;
+        BGMManager.currentSceneName = "0-1";
+        BGMManager.instance.index = 1;
         for (int i = 0; i < OffObjInBtl.Length; i++)
         {
             OffObjInBtl[i].SetActive(false);
@@ -83,6 +94,7 @@ public class SceneLoadManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(2f);
         StartCoroutine(FadeManager.instance.ImageFadeOut(FadeManager.instance.LoadedImg));
         StartCoroutine(FadeManager.instance.ImageFadeOut(FadeManager.instance.CornerImg));
+        BGMManager.instance.PlayBGMintro(1);
         yield return new WaitForSecondsRealtime(1f);
         StartCoroutine(FadeManager.instance.CanvasFadeOut(FadeManager.instance.TextSpaceCG, null));
         yield return new WaitForSecondsRealtime(1f);

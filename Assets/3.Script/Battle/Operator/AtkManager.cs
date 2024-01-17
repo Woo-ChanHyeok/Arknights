@@ -32,7 +32,7 @@ public class AtkManager : MonoBehaviour
 
         originScale = skelAni.gameObject.transform.localScale;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         DecideState();
         //if (Target != null)
@@ -61,12 +61,28 @@ public class AtkManager : MonoBehaviour
         else if (BlockEnemy.blockEnemy.Count > 0)
         {
             Target = BlockEnemy.blockEnemy[0];
-            AttackEnemy(Target);
+            if(Target != null && Target.GetComponent<EnemyController>().isActive != false)
+            {
+                AttackEnemy(Target);
+            }
+            else
+            {
+                spineAniController.EndAttack();
+            }
+
         }
         else if(AttackableEnemy.attackableEnemy.Count > 0)
         {
             Target = AttackableEnemy.nearEnemy;
-            AttackEnemy(Target);
+            if (Target != null && Target.GetComponent<EnemyController>().isActive != false)
+            {
+                AttackEnemy(Target);
+            }
+            else
+            {
+                spineAniController.EndAttack();
+            }
+
         }
 
     }
