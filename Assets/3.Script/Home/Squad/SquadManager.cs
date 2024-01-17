@@ -11,6 +11,9 @@ public class SquadManager : MonoBehaviour
     public GameObject removeObject = null;
     public List<OperatorLineUp> squads = new List<OperatorLineUp>();
     public GameObject btlOperCanvas;
+    public GameObject mainBtlOperCanvas;
+    public GameObject btlOperContent;
+    public GameObject mainBtlOperContent;
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +36,16 @@ public class SquadManager : MonoBehaviour
     {
         //btlOperCanvas.SetActive(false);
         StartCoroutine(FadeManager.instance.CanvasFadeOut(btlOperCanvas.GetComponent<CanvasGroup>(), btlOperCanvas));
+    }
+    public void TurnOn_Main()
+    {
+        mainBtlOperCanvas.SetActive(true);
+        StartCoroutine(FadeManager.instance.CanvasFadeIn(mainBtlOperCanvas.GetComponent<CanvasGroup>()));
+    }
+    public void BackBtn_Main()
+    {
+        //btlOperCanvas.SetActive(false);
+        StartCoroutine(FadeManager.instance.CanvasFadeOut(mainBtlOperCanvas.GetComponent<CanvasGroup>(), mainBtlOperCanvas));
     }
     public void ConfirmBtn()
     {
@@ -59,6 +72,7 @@ public class SquadManager : MonoBehaviour
             squads.Add(LineUp);
 
         SquadCavasManager.instance.SquadLineUp();
+        MainSquadCanvasManager.instance.SquadLineUp();
     }
     public void RemoveSquadList(OperatorLineUp LineUp)
     {
@@ -66,7 +80,19 @@ public class SquadManager : MonoBehaviour
             squads.Remove(LineUp);
 
         SquadCavasManager.instance.SquadLineUp();
+        MainSquadCanvasManager.instance.SquadLineUp();
     }
 
-
+    public void UIUpdate()
+    {
+        for(int i =0; i < btlOperContent.transform.childCount; i++)
+        {
+            btlOperContent.transform.GetChild(i).GetComponent<Squad_Slot>().UpdateInfo();
+        }
+        for (int i = 0; i < mainBtlOperContent.transform.childCount; i++)
+        {
+            mainBtlOperContent.transform.GetChild(i).GetComponent<Squad_Slot>().UpdateInfo();
+        }
+        
+    }
 }

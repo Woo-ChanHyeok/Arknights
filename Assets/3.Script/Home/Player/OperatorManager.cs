@@ -60,6 +60,7 @@ public class OperatorManager : MonoBehaviour
         GameObject oper = Instantiate(operatorPerfab, parent);
         oper.GetComponent<OperStatus>().CopyStatus(copy);
         oper.GetComponent<Squad_Slot>().UpdateInfo();
+        SquadManager.instance.UIUpdate();
     }
     public void InstantiateOperatorButDestroyDuplelicate(OperatorLineUp haveOper, Transform parent)
     {
@@ -71,6 +72,7 @@ public class OperatorManager : MonoBehaviour
         GameObject oper = Instantiate(operatorPerfab, parent);
         oper.GetComponent<OperStatus>().CopyStatus(copy);
         oper.GetComponent<Squad_Slot>().UpdateInfo();
+        SquadManager.instance.UIUpdate();
     }
 
     private void DestroyLineUp(Transform parent)
@@ -85,4 +87,5 @@ public class OperatorManager : MonoBehaviour
         OperStatus oper = transform.Find(name).GetComponent<OperStatus>();
         return oper;
     }
+
 }

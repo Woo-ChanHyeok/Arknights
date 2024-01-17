@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SquadCavasManager : MonoBehaviour
+public class MainSquadCanvasManager : MonoBehaviour
 {
-    public static SquadCavasManager instance = null;
+    public static MainSquadCanvasManager instance = null;
     public Transform content;
     public GameObject[] Slots;
     public Image[] images;
@@ -18,14 +18,6 @@ public class SquadCavasManager : MonoBehaviour
             Destroy(gameObject);
 
         gameObject.SetActive(false);
-    }
-    private void Start()
-    {
-
-    }
-    private void Update()
-    {
-        
     }
     public void SquadLineUp()
     {
@@ -56,15 +48,10 @@ public class SquadCavasManager : MonoBehaviour
     {
         StartCoroutine(FadeManager.instance.CanvasFadeOut(GetComponent<CanvasGroup>(), gameObject));
     }
-    public void TurnOnMe()
-    {
-        gameObject.SetActive(true);
-        StartCoroutine(FadeManager.instance.CanvasFadeIn(GetComponent<CanvasGroup>()));
-    }
     public void TurnOnMe_Main()
     {
         gameObject.SetActive(true);
         StartCoroutine(FadeManager.instance.CanvasFadeIn(GetComponent<CanvasGroup>()));
     }
-
 }
+
