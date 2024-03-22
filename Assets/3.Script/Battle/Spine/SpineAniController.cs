@@ -52,12 +52,12 @@ public class SpineAniController : MonoBehaviour
         //Ani.AnimationState.ClearTracks();
         if (Ani.AnimationState.Data.SkeletonData.FindAnimation("Attack_End") != null)
         {
-            Ani.AnimationState.AddAnimation(0, "Attack_End", false, 0f);
+            Ani.AnimationState.SetAnimation(0, "Attack_End", false);
             Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
         }
         else
         {
-            Ani.AnimationState.AddAnimation(0, "Idle", true, 0f);
+            Ani.AnimationState.SetAnimation(0, "Idle", true);
         }
 
     }

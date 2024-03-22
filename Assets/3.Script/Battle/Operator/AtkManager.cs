@@ -54,6 +54,7 @@ public class AtkManager : MonoBehaviour
                 spineAniController.EndAttack();
             }
 
+
             //RestoreTransform(skelAni.gameObject);
             //spineAniController.RestoreDataAsset();
             //spineAniController.SetIdle();
@@ -65,10 +66,10 @@ public class AtkManager : MonoBehaviour
             {
                 AttackEnemy(Target);
             }
-            else
-            {
-                spineAniController.EndAttack();
-            }
+            //else
+            //{
+            //    spineAniController.EndAttack();
+            //}
 
         }
         else if(AttackableEnemy.attackableEnemy.Count > 0)
@@ -78,10 +79,10 @@ public class AtkManager : MonoBehaviour
             {
                 AttackEnemy(Target);
             }
-            else
-            {
-                spineAniController.EndAttack();
-            }
+            //else
+            //{
+            //    spineAniController.EndAttack();
+            //}
 
         }
 
